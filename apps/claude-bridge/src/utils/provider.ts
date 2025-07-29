@@ -9,9 +9,11 @@ import type {
 	AnthropicConfig,
 	OpenAIConfig,
 	GoogleConfig,
+	XAIConfig,
 	AnthropicAskOptions,
 	OpenAIAskOptions,
 	GoogleAskOptions,
+	XAIAskOptions,
 	ChatClient,
 } from "@mariozechner/lemmy";
 import type {
@@ -60,6 +62,11 @@ export async function createProviderClient(config: BridgeConfig): Promise<Provid
 				client = lemmy.anthropic(providerConfig as AnthropicConfig);
 				break;
 			}
+			case "xai": {
+				const { lemmy } = await import("@mariozechner/lemmy");
+				client = lemmy.xai(providerConfig as XAIConfig);
+				break;
+			}
 			default:
 				const _exhaustiveCheck: never = provider;
 				throw new Error(`Unsupported provider: ${_exhaustiveCheck}`);
@@ -92,6 +99,8 @@ function buildProviderConfig(provider: Provider, config: BridgeConfig): Provider
 			return baseConfig as OpenAIConfig;
 		case "google":
 			return baseConfig as GoogleConfig;
+		case "xai":
+			return baseConfig as XAIConfig;
 		default:
 			// TypeScript exhaustiveness check
 			const _exhaustiveCheck: never = provider;
@@ -116,6 +125,10 @@ function getDefaultApiKey(provider: Provider): string {
 			const googleKey = process.env["GOOGLE_API_KEY"];
 			if (!googleKey) throw new Error("GOOGLE_API_KEY environment variable is required");
 			return googleKey;
+		case "xai":
+			const xaiKey = process.env["GROK_API_KEY"];
+			if (!xaiKey) throw new Error("GROK_API_KEY environment variable is required");
+			return xaiKey;
 		default:
 			// TypeScript exhaustiveness check
 			const _exhaustiveCheck: never = provider;
@@ -174,7 +187,7 @@ export function validateCapabilities(
 export function convertThinkingParameters(
 	provider: Provider,
 	anthropicRequest: MessageCreateParamsBase,
-): AnthropicAskOptions | OpenAIAskOptions | GoogleAskOptions {
+): AnthropicAskOptions | OpenAIAskOptions | GoogleAskOptions | XAIAskOptions {
 	const baseOptions = {
 		maxOutputTokens: anthropicRequest.max_tokens,
 	};
@@ -214,6 +227,14 @@ export function convertThinkingParameters(
 					reasoningEffort: "medium" as const,
 				}),
 			} as OpenAIAskOptions;
+
+		case "xai":
+			return {
+				...baseOptions,
+				...(anthropicRequest.thinking?.type == "enabled" && {
+					reasoningEffort: "medium" as const,
+				}),
+			} as XAIAskOptions;
 
 		default:
 			// TypeScript exhaustiveness check

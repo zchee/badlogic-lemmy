@@ -135,7 +135,6 @@ The built artifacts are ready for npm publishing and include:
 **Two-part system:**
 
 1. **Backend** (`src/`)
-
    - **CLI** (`cli.ts`) - Command-line interface and argument parsing. Launches Claude Code and injects interceptors
    - **Interceptor** (`interceptor.ts`) - injects itself into Claude Code, intercepts calls to fetch(), and logs them to JSONL files in .claude-trace/ in the current working dir.
    - **HTML Generator** (`html-generator.ts`) - Embeds frontend into self-contained HTML reports

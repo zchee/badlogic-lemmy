@@ -40,6 +40,11 @@
 		"globby": "^14.0.0",
 		"fast-glob": "^3.3.2"
 	},
+	"overrides": {
+		"braces": "3.0.3",
+		"micromatch": "4.0.8",
+		"debug": "4.4.1"
+	},
 	"devDependencies": {
 		"@mariozechner/lemmy": "file:../lemmy",
 		"@types/node": "^20.0.0",

@@ -26,11 +26,16 @@
 		"publish": "npm run build && npm publish --workspaces --access public",
 		"prepare": "husky"
 	},
+	"overrides": {
+		"braces": "3.0.3",
+		"micromatch": "4.0.8",
+		"debug": "4.4.1"
+	},
 	"devDependencies": {
 		"concurrently": "^9.1.0",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.0.0",
-		"live-server": "^1.2.2",
+		"live-server": "^1.1.0",
 		"prettier": "^3.5.3",
 		"typescript": "^5.8.3"
 	},

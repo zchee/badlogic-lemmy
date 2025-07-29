@@ -1,5 +1,5 @@
 {
-	"name": "@mariozechner/claude-trace",
+	"name": "@zchee/claude-trace",
 	"version": "1.0.3",
 	"description": "Record all your interactions with Claude Code as you develop your projects",
 	"main": "dist/index.js",
@@ -50,5 +50,9 @@
 	},
 	"dependencies": {
 		"@anthropic-ai/sdk": "^0.52.0"
+	},
+	"overrides": {
+		"braces": "3.0.3",
+		"debug": "4.4.1"
 	}
 }

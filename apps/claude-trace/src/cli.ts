@@ -98,38 +98,40 @@ function resolveToJsFile(filePath: string): string {
 	try {
 		// First, resolve any symlinks
 		const realPath = fs.realpathSync(filePath);
-		
+
 		// Check if it's already a JS file
-		if (realPath.endsWith('.js')) {
+		if (realPath.endsWith(".js")) {
 			return realPath;
 		}
-		
+
 		// If it's a Node.js shebang script, check if it's actually a JS file
 		if (fs.existsSync(realPath)) {
-			const content = fs.readFileSync(realPath, 'utf-8');
+			const content = fs.readFileSync(realPath, "utf-8");
 			// Check for Node.js shebang
-			if (content.startsWith('#!/usr/bin/env node') || 
+			if (
+				content.startsWith("#!/usr/bin/env node") ||
 				content.match(/^#!.*\/node$/m) ||
-				content.includes('require(') ||
-				content.includes('import ')) {
+				content.includes("require(") ||
+				content.includes("import ")
+			) {
 				// This is likely a JS file without .js extension
 				return realPath;
 			}
 		}
-		
+
 		// If not a JS file, try common JS file locations
 		const possibleJsPaths = [
-			realPath + '.js',
-			realPath.replace(/\/bin\//, '/lib/') + '.js',
-			realPath.replace(/\/\.bin\//, '/lib/bin/') + '.js'
+			realPath + ".js",
+			realPath.replace(/\/bin\//, "/lib/") + ".js",
+			realPath.replace(/\/\.bin\//, "/lib/bin/") + ".js",
 		];
-		
+
 		for (const jsPath of possibleJsPaths) {
 			if (fs.existsSync(jsPath)) {
 				return jsPath;
 			}
 		}
-		
+
 		// Fall back to original path
 		return realPath;
 	} catch (error) {
@@ -145,17 +147,17 @@ function getClaudeAbsolutePath(): string {
 				encoding: "utf-8",
 			})
 			.trim();
-		
+
 		// Handle shell aliases (e.g., "claude: aliased to /path/to/claude")
 		const aliasMatch = claudePath.match(/:\s*aliased to\s+(.+)$/);
 		if (aliasMatch && aliasMatch[1]) {
 			claudePath = aliasMatch[1];
 		}
-		
+
 		// Check if the path is a bash wrapper
 		if (fs.existsSync(claudePath)) {
-			const content = fs.readFileSync(claudePath, 'utf-8');
-			if (content.startsWith('#!/bin/bash')) {
+			const content = fs.readFileSync(claudePath, "utf-8");
+			if (content.startsWith("#!/bin/bash")) {
 				// Parse bash wrapper to find actual executable
 				const execMatch = content.match(/exec\s+"([^"]+)"/);
 				if (execMatch && execMatch[1]) {
@@ -165,23 +167,23 @@ function getClaudeAbsolutePath(): string {
 				}
 			}
 		}
-		
+
 		return resolveToJsFile(claudePath);
 	} catch (error) {
 		// First try the local bash wrapper
 		const os = require("os");
 		const localClaudeWrapper = path.join(os.homedir(), ".claude", "local", "claude");
-		
+
 		if (fs.existsSync(localClaudeWrapper)) {
-			const content = fs.readFileSync(localClaudeWrapper, 'utf-8');
-			if (content.startsWith('#!/bin/bash')) {
+			const content = fs.readFileSync(localClaudeWrapper, "utf-8");
+			if (content.startsWith("#!/bin/bash")) {
 				const execMatch = content.match(/exec\s+"([^"]+)"/);
 				if (execMatch && execMatch[1]) {
 					return resolveToJsFile(execMatch[1]);
 				}
 			}
 		}
-		
+
 		// Then try the node_modules/.bin path
 		const localClaudePath = path.join(os.homedir(), ".claude", "local", "node_modules", ".bin", "claude");
 		if (fs.existsSync(localClaudePath)) {

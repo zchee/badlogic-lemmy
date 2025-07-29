@@ -44,6 +44,7 @@
 ### Implementation Strategy
 
 The implementation should:
+
 1. Parse the `--max-completion-tokens` flag in the CLI
 2. Validate that the value is a positive integer
 3. Pass it through the environment variable system (like other configs)

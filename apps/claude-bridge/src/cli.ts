@@ -11,6 +11,7 @@ import {
 	GoogleModelData,
 	ModelToProvider,
 	OpenAIModelData,
+	XAIModelData,
 	findModelData,
 	type ModelData,
 	type Provider,
@@ -73,6 +74,7 @@ const modelValidationConfig: ModelValidationConfig = {
 		anthropic: AnthropicModelData,
 		openai: OpenAIModelData,
 		google: GoogleModelData,
+		xai: XAIModelData,
 	},
 	modelToProvider: ModelToProvider,
 };
@@ -167,6 +169,9 @@ function showProviders(): void {
 				case "google":
 					console.log(`  google     Google models (Gemini, etc.)`);
 					break;
+				case "xai":
+					console.log(`  xai        XAI models`);
+					break;
 				default: {
 					// TypeScript will catch if we miss any provider cases
 					const _exhaustiveCheck: never = provider;
@@ -219,6 +224,8 @@ function showProviderModels(provider: string): void {
 		providerDisplayName = "OpenAI";
 	} else if (provider === "google") {
 		providerDisplayName = "Google";
+	} else if (provider === "xai") {
+		providerDisplayName = "xai";
 	} else {
 		// This should never happen since we validated provider above
 		console.error(`❌ Unexpected provider: ${provider}`);
@@ -538,6 +545,9 @@ function runClaudeWithBridge(args: ClaudeArgs): number {
 				break;
 			case "google":
 				envVar = "GOOGLE_API_KEY";
+				break;
+			case "xai":
+				envVar = "GROK_API_KEY";
 				break;
 			default:
 				// TypeScript will catch if we miss any provider cases

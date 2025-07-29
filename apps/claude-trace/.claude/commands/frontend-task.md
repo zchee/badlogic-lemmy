@@ -5,13 +5,11 @@
 The project has a live development environment with immediate feedback loop:
 
 1. **Run development server**: `npm run dev`
-
    - Continuously rebuilds both backend (`src/`) and frontend (`frontend/src/`) on file changes
    - Serves project at `http://localhost:8080`
    - Auto-generates `test/index.html` from `test/test-traffic.jsonl` via HTML generation
 
 2. **Live preview**: Browser-sync serves `test/index.html` to Chrome
-
    - Automatic browser refresh on frontend changes
    - Immediate visual feedback when editing frontend code
 
