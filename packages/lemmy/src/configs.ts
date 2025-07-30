@@ -4,7 +4,7 @@ import { z } from "zod";
 // Core schemas
 // =============================================================================
 
-export const ProviderSchema = z.enum(["anthropic", "openai", "google"]);
+export const ProviderSchema = z.enum(["anthropic", "openai", "google", "xai"]);
 
 // =============================================================================
 // Ask options schemas (for runtime API calls)
@@ -112,6 +112,38 @@ export const GoogleAskOptionsSchema = BaseAskOptionsSchema.extend({
 	responseMimeType: z.enum(["text/plain", "application/json"]).optional().describe("Output response mimetype"),
 });
 
+export const XAIAskOptionsSchema = BaseAskOptionsSchema.extend({
+	temperature: z.coerce.number().min(0).max(2).optional().describe("Temperature for sampling (0.0-2.0)"),
+	topP: z.coerce.number().min(0).max(1).optional().describe("Top-p sampling parameter (0.0-1.0)"),
+	presencePenalty: z.coerce
+		.number()
+		.min(-2)
+		.max(2)
+		.optional()
+		.describe("Presence penalty (-2.0 to 2.0) - penalizes tokens based on presence"),
+	frequencyPenalty: z.coerce
+		.number()
+		.min(-2)
+		.max(2)
+		.optional()
+		.describe("Frequency penalty (-2.0 to 2.0) - penalizes tokens based on frequency"),
+	logprobs: z.coerce.boolean().optional().describe("Whether to return log probabilities of output tokens"),
+	topLogprobs: z.coerce
+		.number()
+		.min(0)
+		.max(20)
+		.optional()
+		.describe("Number of most likely tokens to return at each position (0-20)"),
+	maxCompletionTokens: z.coerce.number().min(1).optional().describe("Upper bound for tokens in completion"),
+	n: z.coerce.number().min(1).max(128).optional().describe("Number of chat completion choices to generate (1-128)"),
+	parallelToolCalls: z.coerce.boolean().optional().describe("Enable parallel function calling during tool use"),
+	responseFormat: z.enum(["text", "json_object"]).optional().describe("Output format specification"),
+	seed: z.coerce.number().optional().describe("For deterministic sampling (beta feature)"),
+	stop: z.string().optional().describe("Stop sequence (single string)"),
+	toolChoice: z.enum(["none", "auto", "required"]).optional().describe("Controls which tool is called"),
+	user: z.string().optional().describe("Stable identifier for end-users"),
+});
+
 // =============================================================================
 // Client configuration schemas (compose base config + model + defaults)
 // =============================================================================
@@ -138,6 +170,11 @@ export const GoogleConfigSchema = BaseClientConfigSchema.extend({
 	defaults: GoogleAskOptionsSchema.optional().describe("Default options for ask requests"),
 });
 
+export const XAIConfigSchema = BaseClientConfigSchema.extend({
+	model: z.string().describe("Model name (e.g. 'grok-4', 'grok-beta')"),
+	defaults: XAIAskOptionsSchema.optional().describe("Default options for ask requests"),
+});
+
 // =============================================================================
 // Export schemas for runtime validation (for CLI)
 // =============================================================================
@@ -147,6 +184,7 @@ export const CLIENT_CONFIG_SCHEMAS = {
 	anthropic: AnthropicAskOptionsSchema,
 	openai: OpenAIAskOptionsSchema,
 	google: GoogleAskOptionsSchema,
+	xai: XAIAskOptionsSchema,
 } as const;
 
 // =============================================================================
@@ -156,17 +194,20 @@ export type BaseConfig = z.infer<typeof BaseClientConfigSchema>;
 export type AnthropicConfig = z.infer<typeof AnthropicConfigSchema>;
 export type OpenAIConfig = z.infer<typeof OpenAIConfigSchema>;
 export type GoogleConfig = z.infer<typeof GoogleConfigSchema>;
+export type XAIConfig = z.infer<typeof XAIConfigSchema>;
 
 export type BaseAskOptions = z.infer<typeof BaseAskOptionsSchema>;
 export type AnthropicAskOptions = z.infer<typeof AnthropicAskOptionsSchema>;
 export type OpenAIAskOptions = z.infer<typeof OpenAIAskOptionsSchema>;
 export type GoogleAskOptions = z.infer<typeof GoogleAskOptionsSchema>;
+export type XAIAskOptions = z.infer<typeof XAIAskOptionsSchema>;
 
 // Schema-driven config type mapping
 export type ProviderConfigMap = {
 	anthropic: AnthropicConfig;
 	openai: OpenAIConfig;
 	google: GoogleConfig;
+	xai: XAIConfig;
 };
 
 // =============================================================================

@@ -48,19 +48,20 @@
 	"devDependencies": {
 		"@mariozechner/lemmy": "file:../../packages/lemmy",
 		"@mariozechner/lemmy-cli-args": "file:../../packages/lemmy-cli-args",
-		"@types/node": "^22.13.10",
+		"@types/node": "^24.1.0",
 		"tsup": "^8.5.0",
-		"tsx": "^4.19.4",
-		"typescript": "^5.8.3"
+		"tsx": "^4.20.3",
+		"typescript": "^5.9.2"
 	},
 	"dependencies": {
-		"@anthropic-ai/sdk": "^0.52.0",
-		"@google/genai": "^1.0.1",
-		"@modelcontextprotocol/sdk": "^1.12.0",
+		"@anthropic-ai/sdk": "^0.57.0",
+		"@google/genai": "^1.12.0",
+		"@modelcontextprotocol/sdk": "^1.17.1",
 		"chalk": "^5.4.1",
 		"commander": "^12.1.0",
-		"openai": "^4.103.0",
+		"jsonrepair": "^3.13.0",
+		"openai": "^5.11.0",
 		"zod": "^3.25.28",
-		"zod-to-json-schema": "^3.22.0"
+		"zod-to-json-schema": "^3.24.6"
 	}
 }

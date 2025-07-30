@@ -80,6 +80,31 @@ export function zodToGoogle(tool: ToolDefinition<any, any>): {
 }
 
 /**
+ * Convert a tool definition to xAI function format
+ * @param tool Tool definition with Zod schema
+ * @returns xAI function definition
+ */
+export function zodToXAI(tool: ToolDefinition<any, any>): {
+	type: "function";
+	function: {
+		name: string;
+		description: string;
+		parameters: Record<string, unknown>;
+	};
+} {
+	const jsonSchema = convertZodSchema(tool.schema);
+
+	return {
+		type: "function",
+		function: {
+			name: tool.name,
+			description: tool.description,
+			parameters: jsonSchema,
+		},
+	};
+}
+
+/**
  * Convert a tool definition to MCP tool format
  * @param tool Tool definition with Zod schema
  * @returns MCP tool definition

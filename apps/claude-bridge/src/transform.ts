@@ -18,6 +18,8 @@ import type {
 	ThinkingConfigParam,
 	Tool,
 } from "@anthropic-ai/sdk/resources/messages/messages.js";
+import type { JSONSchema } from "./types";
+import { toJSONSchema } from "zod/v4";
 
 /**
  * Convert JSON Schema to Zod schema
@@ -187,7 +189,9 @@ export function transformAnthropicToLemmy(anthropicRequest: MessageCreateParamsB
  */
 function convertAnthropicToolToLemmy(anthropicTool: Tool): ToolDefinition | null {
 	try {
-		const zodSchema = jsonSchemaToZod(anthropicTool.input_schema);
+		// Type cast needed: InputSchema.properties is typed as 'unknown' but JSONSchema expects 'Record<string, JSONSchema>'
+		// At runtime, both represent the same JSON Schema structure, so this cast is safe
+		const zodSchema = jsonSchemaToZod(anthropicTool.input_schema as JSONSchema);
 
 		return {
 			name: anthropicTool.name,
