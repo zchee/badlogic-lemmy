@@ -3,54 +3,17 @@
 
 // Provider-specific model types
 export type AnthropicModels =
-	| "claude-2.0"
-	| "claude-2.1"
 	| "claude-3-5-haiku-20241022"
-	| "claude-3-5-haiku-latest"
 	| "claude-3-5-sonnet-20240620"
 	| "claude-3-5-sonnet-20241022"
-	| "claude-3-5-sonnet-latest"
 	| "claude-3-7-sonnet-20250219"
-	| "claude-3-7-sonnet-latest"
 	| "claude-3-haiku-20240307"
 	| "claude-3-opus-20240229"
-	| "claude-3-opus-latest"
-	| "claude-3-sonnet-20240229"
 	| "claude-opus-4-20250514"
 	| "claude-sonnet-4-20250514";
 
 export const AnthropicModelData = {
-	"claude-2.0": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: false,
-		supportsImageInput: false,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
-	"claude-2.1": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: false,
-		supportsImageInput: false,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
 	"claude-3-5-haiku-20241022": {
-		contextWindow: 200000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.8,
-			outputPerMillion: 4,
-		},
-	},
-	"claude-3-5-haiku-latest": {
 		contextWindow: 200000,
 		maxOutputTokens: 8192,
 		supportsTools: true,
@@ -80,27 +43,7 @@ export const AnthropicModelData = {
 			outputPerMillion: 15,
 		},
 	},
-	"claude-3-5-sonnet-latest": {
-		contextWindow: 200000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
 	"claude-3-7-sonnet-20250219": {
-		contextWindow: 200000,
-		maxOutputTokens: 64000,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
-	"claude-3-7-sonnet-latest": {
 		contextWindow: 200000,
 		maxOutputTokens: 64000,
 		supportsTools: true,
@@ -128,26 +71,6 @@ export const AnthropicModelData = {
 		pricing: {
 			inputPerMillion: 15,
 			outputPerMillion: 75,
-		},
-	},
-	"claude-3-opus-latest": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 15,
-			outputPerMillion: 75,
-		},
-	},
-	"claude-3-sonnet-20240229": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
 		},
 	},
 	"claude-opus-4-20250514": {
@@ -197,8 +120,6 @@ export type OpenAIModels =
 	| "gpt-4.1-mini-2025-04-14"
 	| "gpt-4.1-nano"
 	| "gpt-4.1-nano-2025-04-14"
-	| "gpt-4.5-preview"
-	| "gpt-4.5-preview-2025-02-27"
 	| "gpt-4o"
 	| "gpt-4o-2024-05-13"
 	| "gpt-4o-2024-08-06"
@@ -206,6 +127,7 @@ export type OpenAIModels =
 	| "gpt-4o-audio-preview"
 	| "gpt-4o-audio-preview-2024-10-01"
 	| "gpt-4o-audio-preview-2024-12-17"
+	| "gpt-4o-audio-preview-2025-06-03"
 	| "gpt-4o-mini"
 	| "gpt-4o-mini-2024-07-18"
 	| "gpt-4o-mini-audio-preview"
@@ -218,6 +140,7 @@ export type OpenAIModels =
 	| "gpt-4o-realtime-preview"
 	| "gpt-4o-realtime-preview-2024-10-01"
 	| "gpt-4o-realtime-preview-2024-12-17"
+	| "gpt-4o-realtime-preview-2025-06-03"
 	| "gpt-4o-search-preview"
 	| "gpt-4o-search-preview-2025-03-11"
 	| "gpt-4o-transcribe"
@@ -225,22 +148,27 @@ export type OpenAIModels =
 	| "o1-2024-12-17"
 	| "o1-mini"
 	| "o1-mini-2024-09-12"
-	| "o1-preview"
-	| "o1-preview-2024-09-12"
 	| "o1-pro"
 	| "o1-pro-2025-03-19"
 	| "o3"
 	| "o3-2025-04-16"
+	| "o3-deep-research"
+	| "o3-deep-research-2025-06-26"
 	| "o3-mini"
 	| "o3-mini-2025-01-31"
+	| "o3-pro"
+	| "o3-pro-2025-06-10"
 	| "o4-mini"
 	| "o4-mini-2025-04-16"
+	| "o4-mini-deep-research"
+	| "o4-mini-deep-research-2025-06-26"
 	| "omni-moderation-2024-09-26"
 	| "omni-moderation-latest"
 	| "text-embedding-3-large"
 	| "text-embedding-3-small"
 	| "text-embedding-ada-002"
 	| "text-moderation-latest"
+	| "tts-1"
 	| "tts-1-1106"
 	| "tts-1-hd-1106";
 
@@ -268,7 +196,7 @@ export const OpenAIModelData = {
 	"codex-mini-latest": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 1.5,
@@ -278,7 +206,7 @@ export const OpenAIModelData = {
 	"computer-use-preview": {
 		contextWindow: 8192,
 		maxOutputTokens: 1024,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 3,
@@ -288,7 +216,7 @@ export const OpenAIModelData = {
 	"computer-use-preview-2025-03-11": {
 		contextWindow: 8192,
 		maxOutputTokens: 1024,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 3,
@@ -495,26 +423,6 @@ export const OpenAIModelData = {
 			outputPerMillion: 0.4,
 		},
 	},
-	"gpt-4.5-preview": {
-		contextWindow: 128000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 10,
-			outputPerMillion: 30,
-		},
-	},
-	"gpt-4.5-preview-2025-02-27": {
-		contextWindow: 128000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 10,
-			outputPerMillion: 30,
-		},
-	},
 	"gpt-4o": {
 		contextWindow: 128000,
 		maxOutputTokens: 16384,
@@ -568,7 +476,7 @@ export const OpenAIModelData = {
 	"gpt-4o-audio-preview-2024-10-01": {
 		contextWindow: 128000,
 		maxOutputTokens: 16384,
-		supportsTools: true,
+		supportsTools: false,
 		supportsImageInput: false,
 		pricing: {
 			inputPerMillion: 2.5,
@@ -576,6 +484,16 @@ export const OpenAIModelData = {
 		},
 	},
 	"gpt-4o-audio-preview-2024-12-17": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"gpt-4o-audio-preview-2025-06-03": {
 		contextWindow: 128000,
 		maxOutputTokens: 16384,
 		supportsTools: false,
@@ -638,7 +556,7 @@ export const OpenAIModelData = {
 	"gpt-4o-mini-realtime-preview-2024-12-17": {
 		contextWindow: 128000,
 		maxOutputTokens: 4096,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: false,
 		pricing: {
 			inputPerMillion: 0.6,
@@ -676,7 +594,7 @@ export const OpenAIModelData = {
 		},
 	},
 	"gpt-4o-realtime-preview": {
-		contextWindow: 128000,
+		contextWindow: 32000,
 		maxOutputTokens: 4096,
 		supportsTools: true,
 		supportsImageInput: false,
@@ -696,6 +614,16 @@ export const OpenAIModelData = {
 		},
 	},
 	"gpt-4o-realtime-preview-2024-12-17": {
+		contextWindow: 128000,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 5,
+			outputPerMillion: 20,
+		},
+	},
+	"gpt-4o-realtime-preview-2025-06-03": {
 		contextWindow: 128000,
 		maxOutputTokens: 4096,
 		supportsTools: false,
@@ -775,26 +703,6 @@ export const OpenAIModelData = {
 			outputPerMillion: 4.4,
 		},
 	},
-	"o1-preview": {
-		contextWindow: 200000,
-		maxOutputTokens: 100000,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 15,
-			outputPerMillion: 60,
-		},
-	},
-	"o1-preview-2024-09-12": {
-		contextWindow: 200000,
-		maxOutputTokens: 100000,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 15,
-			outputPerMillion: 60,
-		},
-	},
 	"o1-pro": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
@@ -821,14 +729,34 @@ export const OpenAIModelData = {
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 10,
-			outputPerMillion: 40,
+			inputPerMillion: 2,
+			outputPerMillion: 8,
 		},
 	},
 	"o3-2025-04-16": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
 		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"o3-deep-research": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 10,
+			outputPerMillion: 40,
+		},
+	},
+	"o3-deep-research-2025-06-26": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 10,
@@ -855,6 +783,26 @@ export const OpenAIModelData = {
 			outputPerMillion: 4.4,
 		},
 	},
+	"o3-pro": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 20,
+			outputPerMillion: 80,
+		},
+	},
+	"o3-pro-2025-06-10": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 20,
+			outputPerMillion: 80,
+		},
+	},
 	"o4-mini": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
@@ -873,6 +821,26 @@ export const OpenAIModelData = {
 		pricing: {
 			inputPerMillion: 1.1,
 			outputPerMillion: 4.4,
+		},
+	},
+	"o4-mini-deep-research": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"o4-mini-deep-research-2025-06-26": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
 		},
 	},
 	"omni-moderation-2024-09-26": {
@@ -926,6 +894,16 @@ export const OpenAIModelData = {
 		supportsImageInput: false,
 		pricing: null,
 	},
+	"tts-1": {
+		contextWindow: 0,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 15,
+			outputPerMillion: 0,
+		},
+	},
 	"tts-1-1106": {
 		contextWindow: 0,
 		maxOutputTokens: 0,
@@ -949,16 +927,13 @@ export const OpenAIModelData = {
 } as const;
 export type GoogleModels =
 	| "aqa"
+	| "embedding-001"
 	| "embedding-gecko-001"
-	| "gemini-1.0-pro-vision-latest"
 	| "gemini-1.5-flash"
 	| "gemini-1.5-flash-001"
-	| "gemini-1.5-flash-001-tuning"
 	| "gemini-1.5-flash-002"
 	| "gemini-1.5-flash-8b"
 	| "gemini-1.5-flash-8b-001"
-	| "gemini-1.5-flash-8b-exp-0827"
-	| "gemini-1.5-flash-8b-exp-0924"
 	| "gemini-1.5-flash-8b-latest"
 	| "gemini-1.5-flash-latest"
 	| "gemini-1.5-pro"
@@ -979,28 +954,43 @@ export type GoogleModels =
 	| "gemini-2.0-flash-thinking-exp-1219"
 	| "gemini-2.0-pro-exp"
 	| "gemini-2.0-pro-exp-02-05"
+	| "gemini-2.5-flash"
 	| "gemini-2.5-flash-exp-native-audio-thinking-dialog"
-	| "gemini-2.5-flash-preview-04-17"
-	| "gemini-2.5-flash-preview-04-17-thinking"
+	| "gemini-2.5-flash-lite"
+	| "gemini-2.5-flash-lite-06-17"
+	| "gemini-2.5-flash-lite-preview-06-17"
 	| "gemini-2.5-flash-preview-05-20"
 	| "gemini-2.5-flash-preview-native-audio-dialog"
-	| "gemini-2.5-pro-exp-03-25"
+	| "gemini-2.5-pro"
 	| "gemini-2.5-pro-preview-03-25"
 	| "gemini-2.5-pro-preview-05-06"
+	| "gemini-2.5-pro-preview-06-05"
+	| "gemini-embedding-001"
 	| "gemini-embedding-exp"
+	| "gemini-embedding-exp-03-07"
 	| "gemini-exp-1206"
-	| "gemini-pro-vision"
+	| "gemini-live-2.5-flash-preview"
 	| "gemma-3-12b-it"
 	| "gemma-3-1b-it"
 	| "gemma-3-27b-it"
 	| "gemma-3-4b-it"
+	| "gemma-3n-e2b-it"
 	| "gemma-3n-e4b-it"
-	| "learnlm-2.0-flash-experimental";
+	| "learnlm-2.0-flash-experimental"
+	| "text-embedding-004"
+	| "veo-2.0-generate-001";
 
 export const GoogleModelData = {
 	aqa: {
 		contextWindow: 7168,
 		maxOutputTokens: 1024,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"embedding-001": {
+		contextWindow: 2048,
+		maxOutputTokens: 1,
 		supportsTools: false,
 		supportsImageInput: false,
 		pricing: null,
@@ -1011,16 +1001,6 @@ export const GoogleModelData = {
 		supportsTools: false,
 		supportsImageInput: false,
 		pricing: null,
-	},
-	"gemini-1.0-pro-vision-latest": {
-		contextWindow: 12288,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
-		},
 	},
 	"gemini-1.5-flash": {
 		contextWindow: 1048576,
@@ -1034,16 +1014,6 @@ export const GoogleModelData = {
 	},
 	"gemini-1.5-flash-001": {
 		contextWindow: 1048576,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
-		},
-	},
-	"gemini-1.5-flash-001-tuning": {
-		contextWindow: 16384,
 		maxOutputTokens: 8192,
 		supportsTools: true,
 		supportsImageInput: true,
@@ -1080,26 +1050,6 @@ export const GoogleModelData = {
 		pricing: {
 			inputPerMillion: 0.075,
 			outputPerMillion: 0.3,
-		},
-	},
-	"gemini-1.5-flash-8b-exp-0827": {
-		contextWindow: 1000000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.0375,
-			outputPerMillion: 0.15,
-		},
-	},
-	"gemini-1.5-flash-8b-exp-0924": {
-		contextWindow: 1000000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.0375,
-			outputPerMillion: 0.15,
 		},
 	},
 	"gemini-1.5-flash-8b-latest": {
@@ -1302,30 +1252,50 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
+	"gemini-2.5-flash": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
+		},
+	},
 	"gemini-2.5-flash-exp-native-audio-thinking-dialog": {
 		contextWindow: 128000,
 		maxOutputTokens: 8000,
 		supportsTools: true,
 		supportsImageInput: false,
 		pricing: {
-			inputPerMillion: 0.5,
-			outputPerMillion: 2,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
-	"gemini-2.5-flash-preview-04-17": {
+	"gemini-2.5-flash-lite": {
 		contextWindow: 1048576,
 		maxOutputTokens: 65536,
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
-	"gemini-2.5-flash-preview-04-17-thinking": {
+	"gemini-2.5-flash-lite-06-17": {
 		contextWindow: 1048576,
 		maxOutputTokens: 65536,
 		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
+		},
+	},
+	"gemini-2.5-flash-lite-preview-06-17": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: false,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 0.075,
@@ -1338,8 +1308,8 @@ export const GoogleModelData = {
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 0.15,
-			outputPerMillion: 0.6,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
 	"gemini-2.5-flash-preview-native-audio-dialog": {
@@ -1348,18 +1318,18 @@ export const GoogleModelData = {
 		supportsTools: true,
 		supportsImageInput: false,
 		pricing: {
-			inputPerMillion: 0.5,
-			outputPerMillion: 2,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
-	"gemini-2.5-pro-exp-03-25": {
+	"gemini-2.5-pro": {
 		contextWindow: 1048576,
 		maxOutputTokens: 65536,
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 0.12,
-			outputPerMillion: 0.5,
+			inputPerMillion: 1.25,
+			outputPerMillion: 10,
 		},
 	},
 	"gemini-2.5-pro-preview-03-25": {
@@ -1378,11 +1348,38 @@ export const GoogleModelData = {
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 1.25,
-			outputPerMillion: 10,
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
 		},
 	},
+	"gemini-2.5-pro-preview-06-05": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
+	"gemini-embedding-001": {
+		contextWindow: 2048,
+		maxOutputTokens: 1,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
 	"gemini-embedding-exp": {
+		contextWindow: 8192,
+		maxOutputTokens: 1,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.002,
+			outputPerMillion: 0.004,
+		},
+	},
+	"gemini-embedding-exp-03-07": {
 		contextWindow: 8192,
 		maxOutputTokens: 1,
 		supportsTools: true,
@@ -1402,14 +1399,14 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
-	"gemini-pro-vision": {
-		contextWindow: 12288,
-		maxOutputTokens: 4096,
+	"gemini-live-2.5-flash-preview": {
+		contextWindow: 1048576,
+		maxOutputTokens: 8192,
 		supportsTools: true,
-		supportsImageInput: true,
+		supportsImageInput: false,
 		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
 	"gemma-3-12b-it": {
@@ -1452,6 +1449,16 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
+	"gemma-3n-e2b-it": {
+		contextWindow: 8192,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
 	"gemma-3n-e4b-it": {
 		contextWindow: 8192,
 		maxOutputTokens: 2048,
@@ -1472,26 +1479,104 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
+	"text-embedding-004": {
+		contextWindow: 2048,
+		maxOutputTokens: 1,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"veo-2.0-generate-001": {
+		contextWindow: 480,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
+} as const;
+export type XAIModels =
+	| "grok-4-latest"
+	| "grok-3-latest"
+	| "grok-3-fast-latest"
+	| "grok-3-mini-latest"
+	| "grok-3-mini-fast-latest"
+	| "grok-2-latest"
+	| "grok-2-vision-latest";
+
+export const XAIModelData = {
+	xqa: {
+		contextWindow: 7168,
+		maxOutputTokens: 1024,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"grok-4-latest": {
+		contextWindow: 256000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3.0,
+			outputPerMillion: 15.0,
+		},
+	},
+	"grok-3-latest": {
+		contextWindow: 131072,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"grok-3-fast-latest": {
+		contextWindow: 131072,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 5,
+			outputPerMillion: 15,
+		},
+	},
+	"grok-3-mini-latest": {
+		contextWindow: 131072,
+		maxOutputTokens: 64000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 0.5,
+		},
+	},
+	"grok-2-vision-latest": {
+		contextWindow: 32768,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 10.0,
+		},
+	},
 } as const;
 
 export type OllamaModels = string;
 
-export type AllModels = AnthropicModels | OpenAIModels | GoogleModels | OllamaModels;
+export type AllModels = AnthropicModels | OpenAIModels | GoogleModels | XAIModels | OllamaModels;
 
 export const ModelToProvider = {
-	"claude-2.0": "anthropic",
-	"claude-2.1": "anthropic",
 	"claude-3-5-haiku-20241022": "anthropic",
-	"claude-3-5-haiku-latest": "anthropic",
 	"claude-3-5-sonnet-20240620": "anthropic",
 	"claude-3-5-sonnet-20241022": "anthropic",
-	"claude-3-5-sonnet-latest": "anthropic",
 	"claude-3-7-sonnet-20250219": "anthropic",
-	"claude-3-7-sonnet-latest": "anthropic",
 	"claude-3-haiku-20240307": "anthropic",
 	"claude-3-opus-20240229": "anthropic",
-	"claude-3-opus-latest": "anthropic",
-	"claude-3-sonnet-20240229": "anthropic",
 	"claude-opus-4-20250514": "anthropic",
 	"claude-sonnet-4-20250514": "anthropic",
 	"babbage-002": "openai",
@@ -1519,8 +1604,6 @@ export const ModelToProvider = {
 	"gpt-4.1-mini-2025-04-14": "openai",
 	"gpt-4.1-nano": "openai",
 	"gpt-4.1-nano-2025-04-14": "openai",
-	"gpt-4.5-preview": "openai",
-	"gpt-4.5-preview-2025-02-27": "openai",
 	"gpt-4o": "openai",
 	"gpt-4o-2024-05-13": "openai",
 	"gpt-4o-2024-08-06": "openai",
@@ -1528,6 +1611,7 @@ export const ModelToProvider = {
 	"gpt-4o-audio-preview": "openai",
 	"gpt-4o-audio-preview-2024-10-01": "openai",
 	"gpt-4o-audio-preview-2024-12-17": "openai",
+	"gpt-4o-audio-preview-2025-06-03": "openai",
 	"gpt-4o-mini": "openai",
 	"gpt-4o-mini-2024-07-18": "openai",
 	"gpt-4o-mini-audio-preview": "openai",
@@ -1540,6 +1624,7 @@ export const ModelToProvider = {
 	"gpt-4o-realtime-preview": "openai",
 	"gpt-4o-realtime-preview-2024-10-01": "openai",
 	"gpt-4o-realtime-preview-2024-12-17": "openai",
+	"gpt-4o-realtime-preview-2025-06-03": "openai",
 	"gpt-4o-search-preview": "openai",
 	"gpt-4o-search-preview-2025-03-11": "openai",
 	"gpt-4o-transcribe": "openai",
@@ -1547,35 +1632,37 @@ export const ModelToProvider = {
 	"o1-2024-12-17": "openai",
 	"o1-mini": "openai",
 	"o1-mini-2024-09-12": "openai",
-	"o1-preview": "openai",
-	"o1-preview-2024-09-12": "openai",
 	"o1-pro": "openai",
 	"o1-pro-2025-03-19": "openai",
 	o3: "openai",
 	"o3-2025-04-16": "openai",
+	"o3-deep-research": "openai",
+	"o3-deep-research-2025-06-26": "openai",
 	"o3-mini": "openai",
 	"o3-mini-2025-01-31": "openai",
+	"o3-pro": "openai",
+	"o3-pro-2025-06-10": "openai",
 	"o4-mini": "openai",
 	"o4-mini-2025-04-16": "openai",
+	"o4-mini-deep-research": "openai",
+	"o4-mini-deep-research-2025-06-26": "openai",
 	"omni-moderation-2024-09-26": "openai",
 	"omni-moderation-latest": "openai",
 	"text-embedding-3-large": "openai",
 	"text-embedding-3-small": "openai",
 	"text-embedding-ada-002": "openai",
 	"text-moderation-latest": "openai",
+	"tts-1": "openai",
 	"tts-1-1106": "openai",
 	"tts-1-hd-1106": "openai",
 	aqa: "google",
+	"embedding-001": "google",
 	"embedding-gecko-001": "google",
-	"gemini-1.0-pro-vision-latest": "google",
 	"gemini-1.5-flash": "google",
 	"gemini-1.5-flash-001": "google",
-	"gemini-1.5-flash-001-tuning": "google",
 	"gemini-1.5-flash-002": "google",
 	"gemini-1.5-flash-8b": "google",
 	"gemini-1.5-flash-8b-001": "google",
-	"gemini-1.5-flash-8b-exp-0827": "google",
-	"gemini-1.5-flash-8b-exp-0924": "google",
 	"gemini-1.5-flash-8b-latest": "google",
 	"gemini-1.5-flash-latest": "google",
 	"gemini-1.5-pro": "google",
@@ -1596,21 +1683,37 @@ export const ModelToProvider = {
 	"gemini-2.0-flash-thinking-exp-1219": "google",
 	"gemini-2.0-pro-exp": "google",
 	"gemini-2.0-pro-exp-02-05": "google",
+	"gemini-2.5-flash": "google",
 	"gemini-2.5-flash-exp-native-audio-thinking-dialog": "google",
-	"gemini-2.5-flash-preview-04-17": "google",
-	"gemini-2.5-flash-preview-04-17-thinking": "google",
+	"gemini-2.5-flash-lite": "google",
+	"gemini-2.5-flash-lite-06-17": "google",
+	"gemini-2.5-flash-lite-preview-06-17": "google",
 	"gemini-2.5-flash-preview-05-20": "google",
 	"gemini-2.5-flash-preview-native-audio-dialog": "google",
-	"gemini-2.5-pro-exp-03-25": "google",
+	"gemini-2.5-pro": "google",
 	"gemini-2.5-pro-preview-03-25": "google",
 	"gemini-2.5-pro-preview-05-06": "google",
+	"gemini-2.5-pro-preview-06-05": "google",
+	"gemini-embedding-001": "google",
 	"gemini-embedding-exp": "google",
+	"gemini-embedding-exp-03-07": "google",
 	"gemini-exp-1206": "google",
-	"gemini-pro-vision": "google",
+	"gemini-live-2.5-flash-preview": "google",
 	"gemma-3-12b-it": "google",
 	"gemma-3-1b-it": "google",
 	"gemma-3-27b-it": "google",
 	"gemma-3-4b-it": "google",
+	"gemma-3n-e2b-it": "google",
 	"gemma-3n-e4b-it": "google",
 	"learnlm-2.0-flash-experimental": "google",
+	"text-embedding-004": "google",
+	"veo-2.0-generate-001": "google",
+	xqa: "xai",
+	"grok-4-latest": "xai",
+	"grok-3-latest": "xai",
+	"grok-3-fast-latest": "xai",
+	"grok-3-mini-latest": "xai",
+	"grok-3-mini-fast-latest": "xai",
+	"grok-2-latest": "xai",
+	"grok-2-vision-latest": "xai",
 } as const;

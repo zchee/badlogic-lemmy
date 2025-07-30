@@ -13,6 +13,7 @@ import {
 	AnthropicAskOptions,
 	OpenAIAskOptions,
 	GoogleAskOptions,
+	XAIAskOptions,
 	AskOptions,
 	Provider,
 	ModelToProvider,
@@ -125,6 +126,7 @@ type ProviderAskOptions = {
 	anthropic: AskOptions<AnthropicAskOptions>;
 	openai: AskOptions<OpenAIAskOptions>;
 	google: AskOptions<GoogleAskOptions>;
+	xai: AskOptions<XAIAskOptions>;
 };
 
 // Helper functions to extract schema information from Zod schemas

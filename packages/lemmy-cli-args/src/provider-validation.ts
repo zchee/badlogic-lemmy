@@ -50,13 +50,14 @@ export function validateProvider(provider: string, validProviders: readonly Prov
  */
 export function getValidProviders(): Provider[] {
 	// This should match the Provider union type exactly
-	const providers: Provider[] = ["anthropic", "openai", "google"];
+	const providers: Provider[] = ["anthropic", "openai", "google", "xai"];
 
 	// TypeScript will ensure this is exhaustive if Provider type changes
 	const exhaustiveCheck: Record<Provider, true> = {
 		anthropic: true,
 		openai: true,
 		google: true,
+		xai: true,
 	};
 
 	// Verify our array matches the exhaustive check
@@ -99,6 +100,7 @@ export function getCapableModels(config: ModelValidationConfig, targetProvider?:
 		anthropic: [],
 		openai: [],
 		google: [],
+		xai: [],
 	};
 
 	// Check all registries for capable models
@@ -240,6 +242,8 @@ export function exhaustiveProviderSwitch<T>(provider: Provider, cases: Record<Pr
 			return cases.openai();
 		case "google":
 			return cases.google();
+		case "xai":
+			return cases.xai();
 		default:
 			// TypeScript will catch if we miss any provider cases
 			const _exhaustiveCheck: never = provider;

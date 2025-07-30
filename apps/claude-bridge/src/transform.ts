@@ -18,6 +18,8 @@ import type {
 	ThinkingConfigParam,
 	Tool,
 } from "@anthropic-ai/sdk/resources/messages/messages.js";
+import type { JSONSchema } from "./types";
+import { toJSONSchema } from "zod/v4";
 
 /**
  * Convert JSON Schema to Zod schema

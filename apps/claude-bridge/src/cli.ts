@@ -11,6 +11,7 @@ import {
 	GoogleModelData,
 	ModelToProvider,
 	OpenAIModelData,
+	XAIModelData,
 	findModelData,
 	type ModelData,
 	type Provider,
@@ -73,6 +74,7 @@ const modelValidationConfig: ModelValidationConfig = {
 		anthropic: AnthropicModelData,
 		openai: OpenAIModelData,
 		google: GoogleModelData,
+		xai: XAIModelData,
 	},
 	modelToProvider: ModelToProvider,
 };
@@ -114,13 +116,16 @@ USAGE:
 
 EXAMPLES:
   # Natural discovery flow
-  claude-bridge                           # Shows: openai, google
+  claude-bridge                           # Shows: openai, google, xai
   claude-bridge openai                    # Shows OpenAI models
   claude-bridge google                    # Shows Google models
+  claude-bridge openai                    # Shows OpenAI models
+  claude-bridge xai                       # Shows xAI models
 
   # Execution
   claude-bridge openai gpt-4o
   claude-bridge google gemini-2.0-flash-exp
+  claude-bridge xai grok-4
 
   # With custom configuration
   claude-bridge openai gpt-4o --apiKey sk-... --baseURL https://api.openai.com/v1
@@ -145,6 +150,7 @@ OPTIONS:
 ENVIRONMENT VARIABLES:
   OPENAI_API_KEY        API key for OpenAI (if --apiKey not provided)
   GOOGLE_API_KEY        API key for Google (if --apiKey not provided)
+  GROK_API_KEY          API key for xAI (if --apiKey not provided)
 
 NOTE:
   Only models with both tools and image support are shown by default.
@@ -167,6 +173,9 @@ function showProviders(): void {
 				case "google":
 					console.log(`  google     Google models (Gemini, etc.)`);
 					break;
+				case "xai":
+					console.log(`  xai        xAI models (grok, etc.)`);
+					break;
 				default: {
 					// TypeScript will catch if we miss any provider cases
 					const _exhaustiveCheck: never = provider;
@@ -183,7 +192,8 @@ Usage:
 
 Examples:
   claude-bridge openai           # Show OpenAI models
-  claude-bridge google           # Show Google models`);
+  claude-bridge google           # Show Google models
+  claude-bridge xai              # Show xAI models`);
 }
 
 function showProviderModels(provider: string): void {
@@ -219,6 +229,8 @@ function showProviderModels(provider: string): void {
 		providerDisplayName = "OpenAI";
 	} else if (provider === "google") {
 		providerDisplayName = "Google";
+	} else if (provider === "xai") {
+		providerDisplayName = "xAI";
 	} else {
 		// This should never happen since we validated provider above
 		console.error(`❌ Unexpected provider: ${provider}`);
@@ -254,6 +266,9 @@ function showProviderModels(provider: string): void {
 	console.log(`  claude-bridge ${provider} ${sortedModels[0]}`);
 	if (sortedModels[1]) {
 		console.log(`  claude-bridge ${provider} ${sortedModels[1]}`);
+	}
+	if (sortedModels[2]) {
+		console.log(`  claude-bridge ${provider} ${sortedModels[2]}`);
 	}
 }
 
@@ -539,6 +554,9 @@ function runClaudeWithBridge(args: ClaudeArgs): number {
 			case "google":
 				envVar = "GOOGLE_API_KEY";
 				break;
+			case "xai":
+				envVar = "GROK_API_KEY";
+				break;
 			default:
 				// TypeScript will catch if we miss any provider cases
 				const _exhaustiveCheck: never = args.provider;
@@ -656,7 +674,7 @@ async function main(argv: string[] = process.argv) {
 	if (parsedArgs.trace) {
 		const exitCode = runClaudeWithBridge({
 			provider: "anthropic", // dummy, ignored in trace mode
-			model: "claude-3-5-sonnet-20241022", // dummy, ignored in trace mode
+			model: "claude-4-sonnet-20250514", // dummy, ignored in trace mode
 			trace: true,
 			debug: true, // trace implies debug
 			claudeBinary: parsedArgs.claudeBinary,

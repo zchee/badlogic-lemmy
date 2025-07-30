@@ -24,7 +24,7 @@ export interface RawPair {
 	note?: string;
 }
 
-export type Provider = "anthropic" | "openai" | "google";
+export type Provider = "anthropic" | "openai" | "google" | "xai";
 
 // JSON Schema types
 export interface JSONSchema {
