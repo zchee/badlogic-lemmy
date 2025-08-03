@@ -27,6 +27,11 @@ function deepSchemaEquals(schema1: object, schema2: object): boolean {
 			return obj.map(normalize).sort();
 		}
 
+		// Additional safety check to ensure obj is a valid object
+		if (typeof obj !== "object" || obj === null || obj === undefined) {
+			return obj;
+		}
+
 		const normalized: Record<string, any> = {};
 		const keys = Object.keys(obj)
 			.filter(

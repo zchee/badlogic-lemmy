@@ -74,7 +74,6 @@ export class OpenAIClient implements ChatClient<OpenAIAskOptions> {
 		if (options.serviceTier !== undefined) params.service_tier = options.serviceTier;
 		if (options.stop !== undefined) params.stop = options.stop;
 		if (options.store !== undefined) params.store = options.store;
-		if (options.toolChoice !== undefined) params.tool_choice = options.toolChoice;
 		if (options.user !== undefined) params.user = options.user;
 		if (options.reasoningEffort !== undefined) params.reasoning_effort = options.reasoningEffort;
 

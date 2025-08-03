@@ -7,7 +7,14 @@ import type { ToolDefinition } from "../types.js";
  * @returns JSON Schema object
  */
 export function convertZodSchema(schema: import("zod").ZodSchema): Record<string, unknown> {
-	return zodToJsonSchema(schema) as Record<string, unknown>;
+	if (!schema) {
+		throw new Error("Schema is required for zodToJsonSchema conversion");
+	}
+	try {
+		return zodToJsonSchema(schema) as Record<string, unknown>;
+	} catch (error) {
+		throw new Error(`Failed to convert Zod schema: ${error instanceof Error ? error.message : String(error)}`);
+	}
 }
 
 /**
@@ -92,13 +99,23 @@ export function zodToXAI(tool: ToolDefinition<any, any>): {
 		parameters: Record<string, unknown>;
 	};
 } {
+	if (!tool) {
+		throw new Error("Tool definition is required for xAI conversion");
+	}
+	if (!tool.name) {
+		throw new Error("Tool name is required for xAI conversion");
+	}
+	if (!tool.schema) {
+		throw new Error(`Tool schema is required for xAI conversion (tool: ${tool.name})`);
+	}
+
 	const jsonSchema = convertZodSchema(tool.schema);
 
 	return {
 		type: "function",
 		function: {
 			name: tool.name,
-			description: tool.description,
+			description: tool.description || "",
 			parameters: jsonSchema,
 		},
 	};

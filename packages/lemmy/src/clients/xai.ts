@@ -158,12 +158,23 @@ export class XAIClient implements ChatClient<XAIAskOptions> {
 		}
 		if (options.seed !== undefined) params.seed = options.seed;
 		if (options.stop !== undefined) params.stop = options.stop;
-		if (options.toolChoice !== undefined) params.tool_choice = options.toolChoice;
 		if (options.user !== undefined) params.user = options.user;
 
 		const tools = options?.context?.listTools() || [];
-		const xaiTools = tools.map((tool: ToolDefinition) => zodToXAI(tool));
-		if (xaiTools && xaiTools.length > 0) {
+		const xaiTools: typeof params.tools = [];
+
+		for (const tool of tools) {
+			try {
+				const xaiTool = zodToXAI(tool);
+				xaiTools.push(xaiTool);
+			} catch (error) {
+				console.error(`Failed to convert tool "${tool?.name || "unknown"}" for xAI:`, error);
+				// Skip invalid tools rather than failing the entire request
+				continue;
+			}
+		}
+
+		if (xaiTools.length > 0) {
 			params.tools = xaiTools;
 			params.tool_choice = options.toolChoice || "auto";
 		}
@@ -417,9 +428,8 @@ export class XAIClient implements ChatClient<XAIAskOptions> {
 								stopReason = choice.finish_reason;
 							}
 						} catch (error) {
-							console.log(JSON.parse(data));
-							console.log(jsonrepair(JSON.parse(data)));
-							// Skip malformed JSON lines
+							// Skip malformed JSON lines - log the raw data for debugging
+							console.warn("Failed to parse JSON chunk:", data);
 							continue;
 						}
 					}
@@ -445,16 +455,9 @@ export class XAIClient implements ChatClient<XAIAskOptions> {
 						arguments: parsedArgs,
 					});
 				} catch (error) {
-					let argsString = toolCallData.arguments || "{}";
-					// Handle empty arguments (tools with no parameters)
-					if (argsString.trim() === "") {
-						argsString = "{}";
-					}
-					const parsedArgs = JSON.parse(jsonrepair(argsString));
-					console.log(JSON.parse(argsString));
-					console.log(parsedArgs);
 					// Invalid JSON in tool arguments - we'll handle this as an error
 					console.error("Failed to parse tool arguments:", error);
+					console.error("Tool arguments string:", toolCallData.arguments);
 				}
 			}
 		}
