@@ -23,7 +23,7 @@
 		"test": "vitest",
 		"test:run": "vitest run",
 		"test:coverage": "vitest run --coverage",
-		"generate-schema": "node scripts/generate-options-schema.js"
+		"generate-schema": "node scripts/update-models.js"
 	},
 	"dependencies": {
 		"@anthropic-ai/sdk": "^0.52.0",

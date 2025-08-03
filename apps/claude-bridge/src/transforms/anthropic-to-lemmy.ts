@@ -7,7 +7,12 @@ import type {
 	SerializedContext,
 } from "@mariozechner/lemmy";
 import { Context } from "@mariozechner/lemmy";
-import type { MessageCreateParamsBase, MessageParam, Tool } from "@anthropic-ai/sdk/resources/messages/messages.js";
+import type {
+	MessageCreateParamsBase,
+	MessageParam,
+	Tool,
+	TextBlockParam,
+} from "@anthropic-ai/sdk/resources/messages/messages.js";
 import { convertAnthropicToolToLemmy } from "./tool-schemas.js";
 
 /**
@@ -21,16 +26,16 @@ export function transformAnthropicToLemmy(anthropicRequest: MessageCreateParamsB
 	if (anthropicRequest.system) {
 		if (typeof anthropicRequest.system === "string") {
 			context.setSystemMessage(anthropicRequest.system);
-		} else {
+		} else if (Array.isArray(anthropicRequest.system)) {
 			// Handle TextBlockParam[] - extract text content
-			const systemText = anthropicRequest.system
-				.filter((block) => block.type === "text")
-				.map((block) => ("text" in block ? block.text : ""))
+			const systemText = (anthropicRequest.system as TextBlockParam[])
+				.filter((block: TextBlockParam) => block.type === "text")
+				.map((block: TextBlockParam) => ("text" in block ? block.text : ""))
 				.join("\n");
 			if (systemText) {
 				context.setSystemMessage(systemText);
 			}
-		}
+		} // If neither string nor array (e.g., undefined falls here but is skipped by outer if), do nothing
 	}
 
 	// Convert tools to lemmy ToolDefinitions with Zod schemas and add to context

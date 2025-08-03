@@ -16,6 +16,7 @@ const PROVIDER_MAPPINGS = {
 	openai: "openai",
 	gemini: "google",
 	google: "google",
+	openrouter: "openrouter",
 };
 
 async function fetchModels() {
@@ -66,6 +67,7 @@ function categorizeByProvider(models) {
 		anthropic: [],
 		openai: [],
 		google: [],
+		openrouter: [],
 		ollama: [], // Will be handled separately as dynamic
 	};
 
@@ -82,6 +84,7 @@ function categorizeByProvider(models) {
 	console.log(`  - Anthropic: ${categories.anthropic.length}`);
 	console.log(`  - OpenAI: ${categories.openai.length}`);
 	console.log(`  - Google: ${categories.google.length}`);
+	console.log(`  - OpenRouter: ${categories.openrouter.length}`);
 
 	return categories;
 }
@@ -201,7 +204,7 @@ async function main() {
 		const tsCode = generateTypeScript(categories);
 
 		// Write to generated/models.ts
-		const modelsPath = join(__dirname, "../packages/lemmy/src/generated/models.ts");
+		const modelsPath = join(__dirname, "../src/generated/models.ts");
 		writeFileSync(modelsPath, tsCode, "utf8");
 
 		console.log(`\n✓ Generated ${modelsPath}`);

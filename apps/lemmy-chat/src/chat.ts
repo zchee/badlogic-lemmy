@@ -125,6 +125,7 @@ type ProviderAskOptions = {
 	anthropic: AskOptions<AnthropicAskOptions>;
 	openai: AskOptions<OpenAIAskOptions>;
 	google: AskOptions<GoogleAskOptions>;
+	openrouter: AskOptions<OpenAIAskOptions>;
 };
 
 // Helper functions to extract schema information from Zod schemas

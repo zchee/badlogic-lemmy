@@ -3,54 +3,17 @@
 
 // Provider-specific model types
 export type AnthropicModels =
-	| "claude-2.0"
-	| "claude-2.1"
 	| "claude-3-5-haiku-20241022"
-	| "claude-3-5-haiku-latest"
 	| "claude-3-5-sonnet-20240620"
 	| "claude-3-5-sonnet-20241022"
-	| "claude-3-5-sonnet-latest"
 	| "claude-3-7-sonnet-20250219"
-	| "claude-3-7-sonnet-latest"
 	| "claude-3-haiku-20240307"
 	| "claude-3-opus-20240229"
-	| "claude-3-opus-latest"
-	| "claude-3-sonnet-20240229"
 	| "claude-opus-4-20250514"
 	| "claude-sonnet-4-20250514";
 
 export const AnthropicModelData = {
-	"claude-2.0": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: false,
-		supportsImageInput: false,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
-	"claude-2.1": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: false,
-		supportsImageInput: false,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
 	"claude-3-5-haiku-20241022": {
-		contextWindow: 200000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.8,
-			outputPerMillion: 4,
-		},
-	},
-	"claude-3-5-haiku-latest": {
 		contextWindow: 200000,
 		maxOutputTokens: 8192,
 		supportsTools: true,
@@ -80,27 +43,7 @@ export const AnthropicModelData = {
 			outputPerMillion: 15,
 		},
 	},
-	"claude-3-5-sonnet-latest": {
-		contextWindow: 200000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
 	"claude-3-7-sonnet-20250219": {
-		contextWindow: 200000,
-		maxOutputTokens: 64000,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
-		},
-	},
-	"claude-3-7-sonnet-latest": {
 		contextWindow: 200000,
 		maxOutputTokens: 64000,
 		supportsTools: true,
@@ -128,26 +71,6 @@ export const AnthropicModelData = {
 		pricing: {
 			inputPerMillion: 15,
 			outputPerMillion: 75,
-		},
-	},
-	"claude-3-opus-latest": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 15,
-			outputPerMillion: 75,
-		},
-	},
-	"claude-3-sonnet-20240229": {
-		contextWindow: 200000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 3,
-			outputPerMillion: 15,
 		},
 	},
 	"claude-opus-4-20250514": {
@@ -197,8 +120,6 @@ export type OpenAIModels =
 	| "gpt-4.1-mini-2025-04-14"
 	| "gpt-4.1-nano"
 	| "gpt-4.1-nano-2025-04-14"
-	| "gpt-4.5-preview"
-	| "gpt-4.5-preview-2025-02-27"
 	| "gpt-4o"
 	| "gpt-4o-2024-05-13"
 	| "gpt-4o-2024-08-06"
@@ -206,6 +127,7 @@ export type OpenAIModels =
 	| "gpt-4o-audio-preview"
 	| "gpt-4o-audio-preview-2024-10-01"
 	| "gpt-4o-audio-preview-2024-12-17"
+	| "gpt-4o-audio-preview-2025-06-03"
 	| "gpt-4o-mini"
 	| "gpt-4o-mini-2024-07-18"
 	| "gpt-4o-mini-audio-preview"
@@ -218,6 +140,7 @@ export type OpenAIModels =
 	| "gpt-4o-realtime-preview"
 	| "gpt-4o-realtime-preview-2024-10-01"
 	| "gpt-4o-realtime-preview-2024-12-17"
+	| "gpt-4o-realtime-preview-2025-06-03"
 	| "gpt-4o-search-preview"
 	| "gpt-4o-search-preview-2025-03-11"
 	| "gpt-4o-transcribe"
@@ -225,22 +148,27 @@ export type OpenAIModels =
 	| "o1-2024-12-17"
 	| "o1-mini"
 	| "o1-mini-2024-09-12"
-	| "o1-preview"
-	| "o1-preview-2024-09-12"
 	| "o1-pro"
 	| "o1-pro-2025-03-19"
 	| "o3"
 	| "o3-2025-04-16"
+	| "o3-deep-research"
+	| "o3-deep-research-2025-06-26"
 	| "o3-mini"
 	| "o3-mini-2025-01-31"
+	| "o3-pro"
+	| "o3-pro-2025-06-10"
 	| "o4-mini"
 	| "o4-mini-2025-04-16"
+	| "o4-mini-deep-research"
+	| "o4-mini-deep-research-2025-06-26"
 	| "omni-moderation-2024-09-26"
 	| "omni-moderation-latest"
 	| "text-embedding-3-large"
 	| "text-embedding-3-small"
 	| "text-embedding-ada-002"
 	| "text-moderation-latest"
+	| "tts-1"
 	| "tts-1-1106"
 	| "tts-1-hd-1106";
 
@@ -268,7 +196,7 @@ export const OpenAIModelData = {
 	"codex-mini-latest": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 1.5,
@@ -278,7 +206,7 @@ export const OpenAIModelData = {
 	"computer-use-preview": {
 		contextWindow: 8192,
 		maxOutputTokens: 1024,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 3,
@@ -288,7 +216,7 @@ export const OpenAIModelData = {
 	"computer-use-preview-2025-03-11": {
 		contextWindow: 8192,
 		maxOutputTokens: 1024,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 3,
@@ -495,26 +423,6 @@ export const OpenAIModelData = {
 			outputPerMillion: 0.4,
 		},
 	},
-	"gpt-4.5-preview": {
-		contextWindow: 128000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 10,
-			outputPerMillion: 30,
-		},
-	},
-	"gpt-4.5-preview-2025-02-27": {
-		contextWindow: 128000,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 10,
-			outputPerMillion: 30,
-		},
-	},
 	"gpt-4o": {
 		contextWindow: 128000,
 		maxOutputTokens: 16384,
@@ -568,7 +476,7 @@ export const OpenAIModelData = {
 	"gpt-4o-audio-preview-2024-10-01": {
 		contextWindow: 128000,
 		maxOutputTokens: 16384,
-		supportsTools: true,
+		supportsTools: false,
 		supportsImageInput: false,
 		pricing: {
 			inputPerMillion: 2.5,
@@ -576,6 +484,16 @@ export const OpenAIModelData = {
 		},
 	},
 	"gpt-4o-audio-preview-2024-12-17": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"gpt-4o-audio-preview-2025-06-03": {
 		contextWindow: 128000,
 		maxOutputTokens: 16384,
 		supportsTools: false,
@@ -638,7 +556,7 @@ export const OpenAIModelData = {
 	"gpt-4o-mini-realtime-preview-2024-12-17": {
 		contextWindow: 128000,
 		maxOutputTokens: 4096,
-		supportsTools: false,
+		supportsTools: true,
 		supportsImageInput: false,
 		pricing: {
 			inputPerMillion: 0.6,
@@ -676,7 +594,7 @@ export const OpenAIModelData = {
 		},
 	},
 	"gpt-4o-realtime-preview": {
-		contextWindow: 128000,
+		contextWindow: 32000,
 		maxOutputTokens: 4096,
 		supportsTools: true,
 		supportsImageInput: false,
@@ -696,6 +614,16 @@ export const OpenAIModelData = {
 		},
 	},
 	"gpt-4o-realtime-preview-2024-12-17": {
+		contextWindow: 128000,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 5,
+			outputPerMillion: 20,
+		},
+	},
+	"gpt-4o-realtime-preview-2025-06-03": {
 		contextWindow: 128000,
 		maxOutputTokens: 4096,
 		supportsTools: false,
@@ -775,26 +703,6 @@ export const OpenAIModelData = {
 			outputPerMillion: 4.4,
 		},
 	},
-	"o1-preview": {
-		contextWindow: 200000,
-		maxOutputTokens: 100000,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 15,
-			outputPerMillion: 60,
-		},
-	},
-	"o1-preview-2024-09-12": {
-		contextWindow: 200000,
-		maxOutputTokens: 100000,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 15,
-			outputPerMillion: 60,
-		},
-	},
 	"o1-pro": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
@@ -821,14 +729,34 @@ export const OpenAIModelData = {
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 10,
-			outputPerMillion: 40,
+			inputPerMillion: 2,
+			outputPerMillion: 8,
 		},
 	},
 	"o3-2025-04-16": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
 		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"o3-deep-research": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 10,
+			outputPerMillion: 40,
+		},
+	},
+	"o3-deep-research-2025-06-26": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 10,
@@ -855,6 +783,26 @@ export const OpenAIModelData = {
 			outputPerMillion: 4.4,
 		},
 	},
+	"o3-pro": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 20,
+			outputPerMillion: 80,
+		},
+	},
+	"o3-pro-2025-06-10": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 20,
+			outputPerMillion: 80,
+		},
+	},
 	"o4-mini": {
 		contextWindow: 200000,
 		maxOutputTokens: 100000,
@@ -873,6 +821,26 @@ export const OpenAIModelData = {
 		pricing: {
 			inputPerMillion: 1.1,
 			outputPerMillion: 4.4,
+		},
+	},
+	"o4-mini-deep-research": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"o4-mini-deep-research-2025-06-26": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
 		},
 	},
 	"omni-moderation-2024-09-26": {
@@ -926,6 +894,16 @@ export const OpenAIModelData = {
 		supportsImageInput: false,
 		pricing: null,
 	},
+	"tts-1": {
+		contextWindow: 0,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 15,
+			outputPerMillion: 0,
+		},
+	},
 	"tts-1-1106": {
 		contextWindow: 0,
 		maxOutputTokens: 0,
@@ -949,16 +927,13 @@ export const OpenAIModelData = {
 } as const;
 export type GoogleModels =
 	| "aqa"
+	| "embedding-001"
 	| "embedding-gecko-001"
-	| "gemini-1.0-pro-vision-latest"
 	| "gemini-1.5-flash"
 	| "gemini-1.5-flash-001"
-	| "gemini-1.5-flash-001-tuning"
 	| "gemini-1.5-flash-002"
 	| "gemini-1.5-flash-8b"
 	| "gemini-1.5-flash-8b-001"
-	| "gemini-1.5-flash-8b-exp-0827"
-	| "gemini-1.5-flash-8b-exp-0924"
 	| "gemini-1.5-flash-8b-latest"
 	| "gemini-1.5-flash-latest"
 	| "gemini-1.5-pro"
@@ -979,28 +954,43 @@ export type GoogleModels =
 	| "gemini-2.0-flash-thinking-exp-1219"
 	| "gemini-2.0-pro-exp"
 	| "gemini-2.0-pro-exp-02-05"
+	| "gemini-2.5-flash"
 	| "gemini-2.5-flash-exp-native-audio-thinking-dialog"
-	| "gemini-2.5-flash-preview-04-17"
-	| "gemini-2.5-flash-preview-04-17-thinking"
+	| "gemini-2.5-flash-lite"
+	| "gemini-2.5-flash-lite-06-17"
+	| "gemini-2.5-flash-lite-preview-06-17"
 	| "gemini-2.5-flash-preview-05-20"
 	| "gemini-2.5-flash-preview-native-audio-dialog"
-	| "gemini-2.5-pro-exp-03-25"
+	| "gemini-2.5-pro"
 	| "gemini-2.5-pro-preview-03-25"
 	| "gemini-2.5-pro-preview-05-06"
+	| "gemini-2.5-pro-preview-06-05"
+	| "gemini-embedding-001"
 	| "gemini-embedding-exp"
+	| "gemini-embedding-exp-03-07"
 	| "gemini-exp-1206"
-	| "gemini-pro-vision"
+	| "gemini-live-2.5-flash-preview"
 	| "gemma-3-12b-it"
 	| "gemma-3-1b-it"
 	| "gemma-3-27b-it"
 	| "gemma-3-4b-it"
+	| "gemma-3n-e2b-it"
 	| "gemma-3n-e4b-it"
-	| "learnlm-2.0-flash-experimental";
+	| "learnlm-2.0-flash-experimental"
+	| "text-embedding-004"
+	| "veo-2.0-generate-001";
 
 export const GoogleModelData = {
 	aqa: {
 		contextWindow: 7168,
 		maxOutputTokens: 1024,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"embedding-001": {
+		contextWindow: 2048,
+		maxOutputTokens: 1,
 		supportsTools: false,
 		supportsImageInput: false,
 		pricing: null,
@@ -1011,16 +1001,6 @@ export const GoogleModelData = {
 		supportsTools: false,
 		supportsImageInput: false,
 		pricing: null,
-	},
-	"gemini-1.0-pro-vision-latest": {
-		contextWindow: 12288,
-		maxOutputTokens: 4096,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
-		},
 	},
 	"gemini-1.5-flash": {
 		contextWindow: 1048576,
@@ -1034,16 +1014,6 @@ export const GoogleModelData = {
 	},
 	"gemini-1.5-flash-001": {
 		contextWindow: 1048576,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
-		},
-	},
-	"gemini-1.5-flash-001-tuning": {
-		contextWindow: 16384,
 		maxOutputTokens: 8192,
 		supportsTools: true,
 		supportsImageInput: true,
@@ -1080,26 +1050,6 @@ export const GoogleModelData = {
 		pricing: {
 			inputPerMillion: 0.075,
 			outputPerMillion: 0.3,
-		},
-	},
-	"gemini-1.5-flash-8b-exp-0827": {
-		contextWindow: 1000000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.0375,
-			outputPerMillion: 0.15,
-		},
-	},
-	"gemini-1.5-flash-8b-exp-0924": {
-		contextWindow: 1000000,
-		maxOutputTokens: 8192,
-		supportsTools: true,
-		supportsImageInput: true,
-		pricing: {
-			inputPerMillion: 0.0375,
-			outputPerMillion: 0.15,
 		},
 	},
 	"gemini-1.5-flash-8b-latest": {
@@ -1302,30 +1252,50 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
+	"gemini-2.5-flash": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
+		},
+	},
 	"gemini-2.5-flash-exp-native-audio-thinking-dialog": {
 		contextWindow: 128000,
 		maxOutputTokens: 8000,
 		supportsTools: true,
 		supportsImageInput: false,
 		pricing: {
-			inputPerMillion: 0.5,
-			outputPerMillion: 2,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
-	"gemini-2.5-flash-preview-04-17": {
+	"gemini-2.5-flash-lite": {
 		contextWindow: 1048576,
 		maxOutputTokens: 65536,
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
-	"gemini-2.5-flash-preview-04-17-thinking": {
+	"gemini-2.5-flash-lite-06-17": {
 		contextWindow: 1048576,
 		maxOutputTokens: 65536,
 		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
+		},
+	},
+	"gemini-2.5-flash-lite-preview-06-17": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: false,
 		supportsImageInput: true,
 		pricing: {
 			inputPerMillion: 0.075,
@@ -1338,8 +1308,8 @@ export const GoogleModelData = {
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 0.15,
-			outputPerMillion: 0.6,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
 	"gemini-2.5-flash-preview-native-audio-dialog": {
@@ -1348,18 +1318,18 @@ export const GoogleModelData = {
 		supportsTools: true,
 		supportsImageInput: false,
 		pricing: {
-			inputPerMillion: 0.5,
-			outputPerMillion: 2,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
-	"gemini-2.5-pro-exp-03-25": {
+	"gemini-2.5-pro": {
 		contextWindow: 1048576,
 		maxOutputTokens: 65536,
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 0.12,
-			outputPerMillion: 0.5,
+			inputPerMillion: 1.25,
+			outputPerMillion: 10,
 		},
 	},
 	"gemini-2.5-pro-preview-03-25": {
@@ -1378,11 +1348,38 @@ export const GoogleModelData = {
 		supportsTools: true,
 		supportsImageInput: true,
 		pricing: {
-			inputPerMillion: 1.25,
-			outputPerMillion: 10,
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
 		},
 	},
+	"gemini-2.5-pro-preview-06-05": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
+	"gemini-embedding-001": {
+		contextWindow: 2048,
+		maxOutputTokens: 1,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
 	"gemini-embedding-exp": {
+		contextWindow: 8192,
+		maxOutputTokens: 1,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.002,
+			outputPerMillion: 0.004,
+		},
+	},
+	"gemini-embedding-exp-03-07": {
 		contextWindow: 8192,
 		maxOutputTokens: 1,
 		supportsTools: true,
@@ -1402,14 +1399,14 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
-	"gemini-pro-vision": {
-		contextWindow: 12288,
-		maxOutputTokens: 4096,
+	"gemini-live-2.5-flash-preview": {
+		contextWindow: 1048576,
+		maxOutputTokens: 8192,
 		supportsTools: true,
-		supportsImageInput: true,
+		supportsImageInput: false,
 		pricing: {
-			inputPerMillion: 0.075,
-			outputPerMillion: 0.3,
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
 		},
 	},
 	"gemma-3-12b-it": {
@@ -1452,6 +1449,16 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
+	"gemma-3n-e2b-it": {
+		contextWindow: 8192,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
 	"gemma-3n-e4b-it": {
 		contextWindow: 8192,
 		maxOutputTokens: 2048,
@@ -1472,26 +1479,3371 @@ export const GoogleModelData = {
 			outputPerMillion: 0.3,
 		},
 	},
+	"text-embedding-004": {
+		contextWindow: 2048,
+		maxOutputTokens: 1,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"veo-2.0-generate-001": {
+		contextWindow: 480,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
+} as const;
+export type OpenrouterModels =
+	| "agentica-org/deepcoder-14b-preview"
+	| "agentica-org/deepcoder-14b-preview:free"
+	| "ai21/jamba-1.6-large"
+	| "ai21/jamba-1.6-mini"
+	| "aion-labs/aion-1.0"
+	| "aion-labs/aion-1.0-mini"
+	| "aion-labs/aion-rp-llama-3.1-8b"
+	| "alfredpros/codellama-7b-instruct-solidity"
+	| "alpindale/goliath-120b"
+	| "amazon/nova-lite-v1"
+	| "amazon/nova-micro-v1"
+	| "amazon/nova-pro-v1"
+	| "anthracite-org/magnum-v2-72b"
+	| "anthracite-org/magnum-v4-72b"
+	| "anthropic/claude-3-haiku"
+	| "anthropic/claude-3-haiku:beta"
+	| "anthropic/claude-3-opus"
+	| "anthropic/claude-3-opus:beta"
+	| "anthropic/claude-3-sonnet"
+	| "anthropic/claude-3.5-haiku"
+	| "anthropic/claude-3.5-haiku-20241022"
+	| "anthropic/claude-3.5-haiku:beta"
+	| "anthropic/claude-3.5-sonnet"
+	| "anthropic/claude-3.5-sonnet-20240620"
+	| "anthropic/claude-3.5-sonnet-20240620:beta"
+	| "anthropic/claude-3.5-sonnet:beta"
+	| "anthropic/claude-3.7-sonnet"
+	| "anthropic/claude-3.7-sonnet:beta"
+	| "anthropic/claude-3.7-sonnet:thinking"
+	| "anthropic/claude-opus-4"
+	| "anthropic/claude-sonnet-4"
+	| "arcee-ai/coder-large"
+	| "arcee-ai/maestro-reasoning"
+	| "arcee-ai/spotlight"
+	| "arcee-ai/virtuoso-large"
+	| "arliai/qwq-32b-arliai-rpr-v1"
+	| "arliai/qwq-32b-arliai-rpr-v1:free"
+	| "baidu/ernie-4.5-300b-a47b"
+	| "bytedance/ui-tars-1.5-7b"
+	| "cognitivecomputations/dolphin-mistral-24b-venice-edition:free"
+	| "cognitivecomputations/dolphin-mixtral-8x22b"
+	| "cognitivecomputations/dolphin3.0-mistral-24b:free"
+	| "cognitivecomputations/dolphin3.0-r1-mistral-24b"
+	| "cognitivecomputations/dolphin3.0-r1-mistral-24b:free"
+	| "cohere/command"
+	| "cohere/command-a"
+	| "cohere/command-r"
+	| "cohere/command-r-03-2024"
+	| "cohere/command-r-08-2024"
+	| "cohere/command-r-plus"
+	| "cohere/command-r-plus-04-2024"
+	| "cohere/command-r-plus-08-2024"
+	| "cohere/command-r7b-12-2024"
+	| "deepseek/deepseek-chat"
+	| "deepseek/deepseek-chat-v3-0324"
+	| "deepseek/deepseek-chat-v3-0324:free"
+	| "deepseek/deepseek-prover-v2"
+	| "deepseek/deepseek-r1"
+	| "deepseek/deepseek-r1-0528"
+	| "deepseek/deepseek-r1-0528-qwen3-8b"
+	| "deepseek/deepseek-r1-0528-qwen3-8b:free"
+	| "deepseek/deepseek-r1-0528:free"
+	| "deepseek/deepseek-r1-distill-llama-70b"
+	| "deepseek/deepseek-r1-distill-llama-70b:free"
+	| "deepseek/deepseek-r1-distill-llama-8b"
+	| "deepseek/deepseek-r1-distill-qwen-1.5b"
+	| "deepseek/deepseek-r1-distill-qwen-14b"
+	| "deepseek/deepseek-r1-distill-qwen-14b:free"
+	| "deepseek/deepseek-r1-distill-qwen-32b"
+	| "deepseek/deepseek-r1-distill-qwen-7b"
+	| "deepseek/deepseek-r1:free"
+	| "deepseek/deepseek-v3-base"
+	| "eleutherai/llemma_7b"
+	| "featherless/qwerky-72b:free"
+	| "google/gemini-2.0-flash-001"
+	| "google/gemini-2.0-flash-exp:free"
+	| "google/gemini-2.0-flash-lite-001"
+	| "google/gemini-2.5-flash"
+	| "google/gemini-2.5-flash-lite"
+	| "google/gemini-2.5-flash-lite-preview-06-17"
+	| "google/gemini-2.5-pro"
+	| "google/gemini-2.5-pro-exp-03-25"
+	| "google/gemini-2.5-pro-preview"
+	| "google/gemini-2.5-pro-preview-05-06"
+	| "google/gemini-flash-1.5"
+	| "google/gemini-flash-1.5-8b"
+	| "google/gemini-pro-1.5"
+	| "google/gemma-2-27b-it"
+	| "google/gemma-2-9b-it"
+	| "google/gemma-2-9b-it:free"
+	| "google/gemma-3-12b-it"
+	| "google/gemma-3-12b-it:free"
+	| "google/gemma-3-27b-it"
+	| "google/gemma-3-27b-it:free"
+	| "google/gemma-3-4b-it"
+	| "google/gemma-3-4b-it:free"
+	| "google/gemma-3n-e2b-it:free"
+	| "google/gemma-3n-e4b-it"
+	| "google/gemma-3n-e4b-it:free"
+	| "gryphe/mythomax-l2-13b"
+	| "inception/mercury"
+	| "inception/mercury-coder"
+	| "infermatic/mn-inferor-12b"
+	| "inflection/inflection-3-pi"
+	| "inflection/inflection-3-productivity"
+	| "liquid/lfm-3b"
+	| "liquid/lfm-40b"
+	| "liquid/lfm-7b"
+	| "mancer/weaver"
+	| "meta-llama/llama-3-70b-instruct"
+	| "meta-llama/llama-3-8b-instruct"
+	| "meta-llama/llama-3.1-405b"
+	| "meta-llama/llama-3.1-405b-instruct"
+	| "meta-llama/llama-3.1-405b-instruct:free"
+	| "meta-llama/llama-3.1-70b-instruct"
+	| "meta-llama/llama-3.1-8b-instruct"
+	| "meta-llama/llama-3.2-11b-vision-instruct"
+	| "meta-llama/llama-3.2-11b-vision-instruct:free"
+	| "meta-llama/llama-3.2-1b-instruct"
+	| "meta-llama/llama-3.2-3b-instruct"
+	| "meta-llama/llama-3.2-3b-instruct:free"
+	| "meta-llama/llama-3.2-90b-vision-instruct"
+	| "meta-llama/llama-3.3-70b-instruct"
+	| "meta-llama/llama-3.3-70b-instruct:free"
+	| "meta-llama/llama-4-maverick"
+	| "meta-llama/llama-4-scout"
+	| "meta-llama/llama-guard-2-8b"
+	| "meta-llama/llama-guard-3-8b"
+	| "meta-llama/llama-guard-4-12b"
+	| "microsoft/mai-ds-r1"
+	| "microsoft/mai-ds-r1:free"
+	| "microsoft/phi-3-medium-128k-instruct"
+	| "microsoft/phi-3-mini-128k-instruct"
+	| "microsoft/phi-3.5-mini-128k-instruct"
+	| "microsoft/phi-4"
+	| "microsoft/phi-4-multimodal-instruct"
+	| "microsoft/phi-4-reasoning-plus"
+	| "microsoft/wizardlm-2-8x22b"
+	| "minimax/minimax-01"
+	| "minimax/minimax-m1"
+	| "mistralai/codestral-2501"
+	| "mistralai/devstral-medium"
+	| "mistralai/devstral-small"
+	| "mistralai/devstral-small-2505"
+	| "mistralai/devstral-small-2505:free"
+	| "mistralai/magistral-medium-2506"
+	| "mistralai/magistral-medium-2506:thinking"
+	| "mistralai/magistral-small-2506"
+	| "mistralai/ministral-3b"
+	| "mistralai/ministral-8b"
+	| "mistralai/mistral-7b-instruct"
+	| "mistralai/mistral-7b-instruct-v0.1"
+	| "mistralai/mistral-7b-instruct-v0.2"
+	| "mistralai/mistral-7b-instruct-v0.3"
+	| "mistralai/mistral-7b-instruct:free"
+	| "mistralai/mistral-large"
+	| "mistralai/mistral-large-2407"
+	| "mistralai/mistral-large-2411"
+	| "mistralai/mistral-medium-3"
+	| "mistralai/mistral-nemo"
+	| "mistralai/mistral-nemo:free"
+	| "mistralai/mistral-saba"
+	| "mistralai/mistral-small"
+	| "mistralai/mistral-small-24b-instruct-2501"
+	| "mistralai/mistral-small-24b-instruct-2501:free"
+	| "mistralai/mistral-small-3.1-24b-instruct"
+	| "mistralai/mistral-small-3.1-24b-instruct:free"
+	| "mistralai/mistral-small-3.2-24b-instruct"
+	| "mistralai/mistral-small-3.2-24b-instruct:free"
+	| "mistralai/mistral-tiny"
+	| "mistralai/mixtral-8x22b-instruct"
+	| "mistralai/mixtral-8x7b-instruct"
+	| "mistralai/pixtral-12b"
+	| "mistralai/pixtral-large-2411"
+	| "moonshotai/kimi-dev-72b:free"
+	| "moonshotai/kimi-k2"
+	| "moonshotai/kimi-k2:free"
+	| "moonshotai/kimi-vl-a3b-thinking"
+	| "moonshotai/kimi-vl-a3b-thinking:free"
+	| "morph/morph-v2"
+	| "morph/morph-v3-fast"
+	| "morph/morph-v3-large"
+	| "neversleep/llama-3-lumimaid-70b"
+	| "neversleep/llama-3.1-lumimaid-8b"
+	| "neversleep/noromaid-20b"
+	| "nothingiisreal/mn-celeste-12b"
+	| "nousresearch/deephermes-3-llama-3-8b-preview:free"
+	| "nousresearch/deephermes-3-mistral-24b-preview"
+	| "nousresearch/hermes-2-pro-llama-3-8b"
+	| "nousresearch/hermes-3-llama-3.1-405b"
+	| "nousresearch/hermes-3-llama-3.1-70b"
+	| "nousresearch/nous-hermes-2-mixtral-8x7b-dpo"
+	| "nvidia/llama-3.1-nemotron-70b-instruct"
+	| "nvidia/llama-3.1-nemotron-ultra-253b-v1"
+	| "nvidia/llama-3.1-nemotron-ultra-253b-v1:free"
+	| "nvidia/llama-3.3-nemotron-super-49b-v1"
+	| "openai/chatgpt-4o-latest"
+	| "openai/codex-mini"
+	| "openai/gpt-3.5-turbo"
+	| "openai/gpt-3.5-turbo-0613"
+	| "openai/gpt-3.5-turbo-16k"
+	| "openai/gpt-3.5-turbo-instruct"
+	| "openai/gpt-4"
+	| "openai/gpt-4-0314"
+	| "openai/gpt-4-1106-preview"
+	| "openai/gpt-4-turbo"
+	| "openai/gpt-4-turbo-preview"
+	| "openai/gpt-4.1"
+	| "openai/gpt-4.1-mini"
+	| "openai/gpt-4.1-nano"
+	| "openai/gpt-4o"
+	| "openai/gpt-4o-2024-05-13"
+	| "openai/gpt-4o-2024-08-06"
+	| "openai/gpt-4o-2024-11-20"
+	| "openai/gpt-4o-mini"
+	| "openai/gpt-4o-mini-2024-07-18"
+	| "openai/gpt-4o-mini-search-preview"
+	| "openai/gpt-4o-search-preview"
+	| "openai/gpt-4o:extended"
+	| "openai/o1"
+	| "openai/o1-mini"
+	| "openai/o1-mini-2024-09-12"
+	| "openai/o1-pro"
+	| "openai/o3"
+	| "openai/o3-mini"
+	| "openai/o3-mini-high"
+	| "openai/o3-pro"
+	| "openai/o4-mini"
+	| "openai/o4-mini-high"
+	| "opengvlab/internvl3-14b"
+	| "openrouter/auto"
+	| "openrouter/horizon-alpha"
+	| "perplexity/r1-1776"
+	| "perplexity/sonar"
+	| "perplexity/sonar-deep-research"
+	| "perplexity/sonar-pro"
+	| "perplexity/sonar-reasoning"
+	| "perplexity/sonar-reasoning-pro"
+	| "pygmalionai/mythalion-13b"
+	| "qwen/qwen-2-72b-instruct"
+	| "qwen/qwen-2.5-72b-instruct"
+	| "qwen/qwen-2.5-72b-instruct:free"
+	| "qwen/qwen-2.5-7b-instruct"
+	| "qwen/qwen-2.5-coder-32b-instruct"
+	| "qwen/qwen-2.5-coder-32b-instruct:free"
+	| "qwen/qwen-2.5-vl-7b-instruct"
+	| "qwen/qwen-max"
+	| "qwen/qwen-plus"
+	| "qwen/qwen-turbo"
+	| "qwen/qwen-vl-max"
+	| "qwen/qwen-vl-plus"
+	| "qwen/qwen2.5-vl-32b-instruct"
+	| "qwen/qwen2.5-vl-32b-instruct:free"
+	| "qwen/qwen2.5-vl-72b-instruct"
+	| "qwen/qwen2.5-vl-72b-instruct:free"
+	| "qwen/qwen3-14b"
+	| "qwen/qwen3-14b:free"
+	| "qwen/qwen3-235b-a22b"
+	| "qwen/qwen3-235b-a22b-2507"
+	| "qwen/qwen3-235b-a22b-thinking-2507"
+	| "qwen/qwen3-235b-a22b:free"
+	| "qwen/qwen3-30b-a3b"
+	| "qwen/qwen3-30b-a3b-instruct-2507"
+	| "qwen/qwen3-30b-a3b:free"
+	| "qwen/qwen3-32b"
+	| "qwen/qwen3-4b:free"
+	| "qwen/qwen3-8b"
+	| "qwen/qwen3-8b:free"
+	| "qwen/qwen3-coder"
+	| "qwen/qwen3-coder:free"
+	| "qwen/qwq-32b"
+	| "qwen/qwq-32b-preview"
+	| "qwen/qwq-32b:free"
+	| "raifle/sorcererlm-8x22b"
+	| "rekaai/reka-flash-3"
+	| "rekaai/reka-flash-3:free"
+	| "sao10k/fimbulvetr-11b-v2"
+	| "sao10k/l3-euryale-70b"
+	| "sao10k/l3-lunaris-8b"
+	| "sao10k/l3.1-euryale-70b"
+	| "sao10k/l3.3-euryale-70b"
+	| "sarvamai/sarvam-m"
+	| "sarvamai/sarvam-m:free"
+	| "scb10x/llama3.1-typhoon2-70b-instruct"
+	| "shisa-ai/shisa-v2-llama3.3-70b"
+	| "shisa-ai/shisa-v2-llama3.3-70b:free"
+	| "sophosympatheia/midnight-rose-70b"
+	| "switchpoint/router"
+	| "tencent/hunyuan-a13b-instruct"
+	| "tencent/hunyuan-a13b-instruct:free"
+	| "thedrummer/anubis-70b-v1.1"
+	| "thedrummer/anubis-pro-105b-v1"
+	| "thedrummer/rocinante-12b"
+	| "thedrummer/skyfall-36b-v2"
+	| "thedrummer/unslopnemo-12b"
+	| "thedrummer/valkyrie-49b-v1"
+	| "thudm/glm-4-32b"
+	| "thudm/glm-4-32b:free"
+	| "thudm/glm-4.1v-9b-thinking"
+	| "thudm/glm-z1-32b"
+	| "thudm/glm-z1-32b:free"
+	| "tngtech/deepseek-r1t-chimera:free"
+	| "tngtech/deepseek-r1t2-chimera"
+	| "tngtech/deepseek-r1t2-chimera:free"
+	| "undi95/remm-slerp-l2-13b"
+	| "undi95/toppy-m-7b"
+	| "x-ai/grok-2-1212"
+	| "x-ai/grok-2-vision-1212"
+	| "x-ai/grok-3"
+	| "x-ai/grok-3-beta"
+	| "x-ai/grok-3-mini"
+	| "x-ai/grok-3-mini-beta"
+	| "x-ai/grok-4"
+	| "x-ai/grok-vision-beta"
+	| "z-ai/glm-4-32b"
+	| "z-ai/glm-4.5"
+	| "z-ai/glm-4.5-air"
+	| "z-ai/glm-4.5-air:free";
+
+export const OpenrouterModelData = {
+	"agentica-org/deepcoder-14b-preview": {
+		contextWindow: 96000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.015,
+			outputPerMillion: 0.015,
+		},
+	},
+	"agentica-org/deepcoder-14b-preview:free": {
+		contextWindow: 96000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"ai21/jamba-1.6-large": {
+		contextWindow: 256000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"ai21/jamba-1.6-mini": {
+		contextWindow: 256000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"aion-labs/aion-1.0": {
+		contextWindow: 131072,
+		maxOutputTokens: 32768,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 4,
+			outputPerMillion: 8,
+		},
+	},
+	"aion-labs/aion-1.0-mini": {
+		contextWindow: 131072,
+		maxOutputTokens: 32768,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7,
+			outputPerMillion: 1.4,
+		},
+	},
+	"aion-labs/aion-rp-llama-3.1-8b": {
+		contextWindow: 32768,
+		maxOutputTokens: 32768,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"alfredpros/codellama-7b-instruct-solidity": {
+		contextWindow: 4096,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"alpindale/goliath-120b": {
+		contextWindow: 6144,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 9,
+			outputPerMillion: 11,
+		},
+	},
+	"amazon/nova-lite-v1": {
+		contextWindow: 300000,
+		maxOutputTokens: 5120,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.06,
+			outputPerMillion: 0.24,
+		},
+	},
+	"amazon/nova-micro-v1": {
+		contextWindow: 128000,
+		maxOutputTokens: 5120,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.035,
+			outputPerMillion: 0.14,
+		},
+	},
+	"amazon/nova-pro-v1": {
+		contextWindow: 300000,
+		maxOutputTokens: 5120,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 3.1999999999999997,
+		},
+	},
+	"anthracite-org/magnum-v2-72b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 3,
+		},
+	},
+	"anthracite-org/magnum-v4-72b": {
+		contextWindow: 16384,
+		maxOutputTokens: 1024,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 3,
+		},
+	},
+	"anthropic/claude-3-haiku": {
+		contextWindow: 200000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 1.25,
+		},
+	},
+	"anthropic/claude-3-haiku:beta": {
+		contextWindow: 200000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 1.25,
+		},
+	},
+	"anthropic/claude-3-opus": {
+		contextWindow: 200000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 15,
+			outputPerMillion: 75,
+		},
+	},
+	"anthropic/claude-3-opus:beta": {
+		contextWindow: 200000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 15,
+			outputPerMillion: 75,
+		},
+	},
+	"anthropic/claude-3-sonnet": {
+		contextWindow: 200000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.5-haiku": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 4,
+		},
+	},
+	"anthropic/claude-3.5-haiku-20241022": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 4,
+		},
+	},
+	"anthropic/claude-3.5-haiku:beta": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 4,
+		},
+	},
+	"anthropic/claude-3.5-sonnet": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.5-sonnet-20240620": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.5-sonnet-20240620:beta": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.5-sonnet:beta": {
+		contextWindow: 200000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.7-sonnet": {
+		contextWindow: 200000,
+		maxOutputTokens: 64000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.7-sonnet:beta": {
+		contextWindow: 200000,
+		maxOutputTokens: 128000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-3.7-sonnet:thinking": {
+		contextWindow: 200000,
+		maxOutputTokens: 64000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"anthropic/claude-opus-4": {
+		contextWindow: 200000,
+		maxOutputTokens: 32000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 15,
+			outputPerMillion: 75,
+		},
+	},
+	"anthropic/claude-sonnet-4": {
+		contextWindow: 200000,
+		maxOutputTokens: 64000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"arcee-ai/coder-large": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 0.7999999999999999,
+		},
+	},
+	"arcee-ai/maestro-reasoning": {
+		contextWindow: 131072,
+		maxOutputTokens: 32000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.8999999999999999,
+			outputPerMillion: 3.3000000000000003,
+		},
+	},
+	"arcee-ai/spotlight": {
+		contextWindow: 131072,
+		maxOutputTokens: 65537,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.18,
+			outputPerMillion: 0.18,
+		},
+	},
+	"arcee-ai/virtuoso-large": {
+		contextWindow: 131072,
+		maxOutputTokens: 64000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.75,
+			outputPerMillion: 1.2,
+		},
+	},
+	"arliai/qwq-32b-arliai-rpr-v1": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.015,
+			outputPerMillion: 0.015,
+		},
+	},
+	"arliai/qwq-32b-arliai-rpr-v1:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"baidu/ernie-4.5-300b-a47b": {
+		contextWindow: 123000,
+		maxOutputTokens: 12000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.28,
+			outputPerMillion: 1.1,
+		},
+	},
+	"bytedance/ui-tars-1.5-7b": {
+		contextWindow: 128000,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"cognitivecomputations/dolphin-mistral-24b-venice-edition:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"cognitivecomputations/dolphin-mixtral-8x22b": {
+		contextWindow: 16000,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.8999999999999999,
+			outputPerMillion: 0.8999999999999999,
+		},
+	},
+	"cognitivecomputations/dolphin3.0-mistral-24b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"cognitivecomputations/dolphin3.0-r1-mistral-24b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.013000000000000001,
+			outputPerMillion: 0.013000000000000001,
+		},
+	},
+	"cognitivecomputations/dolphin3.0-r1-mistral-24b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"cohere/command": {
+		contextWindow: 4096,
+		maxOutputTokens: 4000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1,
+			outputPerMillion: 2,
+		},
+	},
+	"cohere/command-a": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"cohere/command-r": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 1.5,
+		},
+	},
+	"cohere/command-r-03-2024": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 1.5,
+		},
+	},
+	"cohere/command-r-08-2024": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.6,
+		},
+	},
+	"cohere/command-r-plus": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"cohere/command-r-plus-04-2024": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"cohere/command-r-plus-08-2024": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"cohere/command-r7b-12-2024": {
+		contextWindow: 128000,
+		maxOutputTokens: 4000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.0375,
+			outputPerMillion: 0.15,
+		},
+	},
+	"deepseek/deepseek-chat": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.272,
+			outputPerMillion: 0.272,
+		},
+	},
+	"deepseek/deepseek-chat-v3-0324": {
+		contextWindow: 163840,
+		maxOutputTokens: 163840,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 0.85,
+		},
+	},
+	"deepseek/deepseek-chat-v3-0324:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"deepseek/deepseek-prover-v2": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 2.1799999999999997,
+		},
+	},
+	"deepseek/deepseek-r1": {
+		contextWindow: 163840,
+		maxOutputTokens: 163840,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 2,
+		},
+	},
+	"deepseek/deepseek-r1-0528": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.272,
+			outputPerMillion: 0.272,
+		},
+	},
+	"deepseek/deepseek-r1-0528-qwen3-8b": {
+		contextWindow: 32000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.01,
+			outputPerMillion: 0.02,
+		},
+	},
+	"deepseek/deepseek-r1-0528-qwen3-8b:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"deepseek/deepseek-r1-0528:free": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"deepseek/deepseek-r1-distill-llama-70b": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.049999999999999996,
+			outputPerMillion: 0.049999999999999996,
+		},
+	},
+	"deepseek/deepseek-r1-distill-llama-70b:free": {
+		contextWindow: 8192,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"deepseek/deepseek-r1-distill-llama-8b": {
+		contextWindow: 32000,
+		maxOutputTokens: 32000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.04,
+			outputPerMillion: 0.04,
+		},
+	},
+	"deepseek/deepseek-r1-distill-qwen-1.5b": {
+		contextWindow: 131072,
+		maxOutputTokens: 32768,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.18,
+			outputPerMillion: 0.18,
+		},
+	},
+	"deepseek/deepseek-r1-distill-qwen-14b": {
+		contextWindow: 64000,
+		maxOutputTokens: 32000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.15,
+		},
+	},
+	"deepseek/deepseek-r1-distill-qwen-14b:free": {
+		contextWindow: 64000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"deepseek/deepseek-r1-distill-qwen-32b": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.15,
+		},
+	},
+	"deepseek/deepseek-r1-distill-qwen-7b": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"deepseek/deepseek-r1:free": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"deepseek/deepseek-v3-base": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.302,
+			outputPerMillion: 0.302,
+		},
+	},
+	"eleutherai/llemma_7b": {
+		contextWindow: 4096,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"featherless/qwerky-72b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"google/gemini-2.0-flash-001": {
+		contextWindow: 1048576,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"google/gemini-2.0-flash-exp:free": {
+		contextWindow: 1048576,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"google/gemini-2.0-flash-lite-001": {
+		contextWindow: 1048576,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
+	"google/gemini-2.5-flash": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65535,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 2.5,
+		},
+	},
+	"google/gemini-2.5-flash-lite": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65535,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"google/gemini-2.5-flash-lite-preview-06-17": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65535,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"google/gemini-2.5-pro": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.25,
+			outputPerMillion: 10,
+		},
+	},
+	"google/gemini-2.5-pro-exp-03-25": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65535,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"google/gemini-2.5-pro-preview": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65536,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.25,
+			outputPerMillion: 10,
+		},
+	},
+	"google/gemini-2.5-pro-preview-05-06": {
+		contextWindow: 1048576,
+		maxOutputTokens: 65535,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.25,
+			outputPerMillion: 10,
+		},
+	},
+	"google/gemini-flash-1.5": {
+		contextWindow: 1000000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.3,
+		},
+	},
+	"google/gemini-flash-1.5-8b": {
+		contextWindow: 1000000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.0375,
+			outputPerMillion: 0.15,
+		},
+	},
+	"google/gemini-pro-1.5": {
+		contextWindow: 2000000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.25,
+			outputPerMillion: 5,
+		},
+	},
+	"google/gemma-2-27b-it": {
+		contextWindow: 8192,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.65,
+			outputPerMillion: 0.65,
+		},
+	},
+	"google/gemma-2-9b-it": {
+		contextWindow: 8192,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.004,
+			outputPerMillion: 0.004,
+		},
+	},
+	"google/gemma-2-9b-it:free": {
+		contextWindow: 8192,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"google/gemma-3-12b-it": {
+		contextWindow: 96000,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.03,
+		},
+	},
+	"google/gemma-3-12b-it:free": {
+		contextWindow: 96000,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"google/gemma-3-27b-it": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09,
+			outputPerMillion: 0.16999999999999998,
+		},
+	},
+	"google/gemma-3-27b-it:free": {
+		contextWindow: 96000,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"google/gemma-3-4b-it": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.02,
+			outputPerMillion: 0.04,
+		},
+	},
+	"google/gemma-3-4b-it:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"google/gemma-3n-e2b-it:free": {
+		contextWindow: 8192,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"google/gemma-3n-e4b-it": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.02,
+			outputPerMillion: 0.04,
+		},
+	},
+	"google/gemma-3n-e4b-it:free": {
+		contextWindow: 8192,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"gryphe/mythomax-l2-13b": {
+		contextWindow: 4096,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.06,
+			outputPerMillion: 0.06,
+		},
+	},
+	"inception/mercury": {
+		contextWindow: 32000,
+		maxOutputTokens: 16000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 1,
+		},
+	},
+	"inception/mercury-coder": {
+		contextWindow: 32000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 1,
+		},
+	},
+	"infermatic/mn-inferor-12b": {
+		contextWindow: 16384,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"inflection/inflection-3-pi": {
+		contextWindow: 8000,
+		maxOutputTokens: 1024,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"inflection/inflection-3-productivity": {
+		contextWindow: 8000,
+		maxOutputTokens: 1024,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"liquid/lfm-3b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.02,
+			outputPerMillion: 0.02,
+		},
+	},
+	"liquid/lfm-40b": {
+		contextWindow: 65536,
+		maxOutputTokens: 65536,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.15,
+		},
+	},
+	"liquid/lfm-7b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.01,
+			outputPerMillion: 0.01,
+		},
+	},
+	"mancer/weaver": {
+		contextWindow: 8000,
+		maxOutputTokens: 1000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.5,
+			outputPerMillion: 1.5,
+		},
+	},
+	"meta-llama/llama-3-70b-instruct": {
+		contextWindow: 8192,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"meta-llama/llama-3-8b-instruct": {
+		contextWindow: 8192,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.06,
+		},
+	},
+	"meta-llama/llama-3.1-405b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 2,
+		},
+	},
+	"meta-llama/llama-3.1-405b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 0.7999999999999999,
+		},
+	},
+	"meta-llama/llama-3.1-405b-instruct:free": {
+		contextWindow: 65536,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"meta-llama/llama-3.1-70b-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.28,
+		},
+	},
+	"meta-llama/llama-3.1-8b-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.015,
+			outputPerMillion: 0.02,
+		},
+	},
+	"meta-llama/llama-3.2-11b-vision-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.049,
+			outputPerMillion: 0.049,
+		},
+	},
+	"meta-llama/llama-3.2-11b-vision-instruct:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"meta-llama/llama-3.2-1b-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.005,
+			outputPerMillion: 0.01,
+		},
+	},
+	"meta-llama/llama-3.2-3b-instruct": {
+		contextWindow: 20000,
+		maxOutputTokens: 20000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.003,
+			outputPerMillion: 0.006,
+		},
+	},
+	"meta-llama/llama-3.2-3b-instruct:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"meta-llama/llama-3.2-90b-vision-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.2,
+			outputPerMillion: 1.2,
+		},
+	},
+	"meta-llama/llama-3.3-70b-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.038000000000000006,
+			outputPerMillion: 0.12,
+		},
+	},
+	"meta-llama/llama-3.3-70b-instruct:free": {
+		contextWindow: 65536,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"meta-llama/llama-4-maverick": {
+		contextWindow: 1048576,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.6,
+		},
+	},
+	"meta-llama/llama-4-scout": {
+		contextWindow: 1048576,
+		maxOutputTokens: 1048576,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.08,
+			outputPerMillion: 0.3,
+		},
+	},
+	"meta-llama/llama-guard-2-8b": {
+		contextWindow: 8192,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"meta-llama/llama-guard-3-8b": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.02,
+			outputPerMillion: 0.06,
+		},
+	},
+	"meta-llama/llama-guard-4-12b": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.049999999999999996,
+			outputPerMillion: 0.049999999999999996,
+		},
+	},
+	"microsoft/mai-ds-r1": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.302,
+			outputPerMillion: 0.302,
+		},
+	},
+	"microsoft/mai-ds-r1:free": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"microsoft/phi-3-medium-128k-instruct": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1,
+			outputPerMillion: 1,
+		},
+	},
+	"microsoft/phi-3-mini-128k-instruct": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"microsoft/phi-3.5-mini-128k-instruct": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"microsoft/phi-4": {
+		contextWindow: 16384,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.06,
+			outputPerMillion: 0.14,
+		},
+	},
+	"microsoft/phi-4-multimodal-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.049999999999999996,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"microsoft/phi-4-reasoning-plus": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.07,
+			outputPerMillion: 0.35,
+		},
+	},
+	"microsoft/wizardlm-2-8x22b": {
+		contextWindow: 65536,
+		maxOutputTokens: 65536,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.48,
+			outputPerMillion: 0.48,
+		},
+	},
+	"minimax/minimax-01": {
+		contextWindow: 1000192,
+		maxOutputTokens: 1000192,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 1.1,
+		},
+	},
+	"minimax/minimax-m1": {
+		contextWindow: 1000000,
+		maxOutputTokens: 40000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 1.6500000000000001,
+		},
+	},
+	"mistralai/codestral-2501": {
+		contextWindow: 262144,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 0.8999999999999999,
+		},
+	},
+	"mistralai/devstral-medium": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 2,
+		},
+	},
+	"mistralai/devstral-small": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.07,
+			outputPerMillion: 0.28,
+		},
+	},
+	"mistralai/devstral-small-2505": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.03,
+		},
+	},
+	"mistralai/devstral-small-2505:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"mistralai/magistral-medium-2506": {
+		contextWindow: 40960,
+		maxOutputTokens: 40000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 5,
+		},
+	},
+	"mistralai/magistral-medium-2506:thinking": {
+		contextWindow: 40960,
+		maxOutputTokens: 40000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 5,
+		},
+	},
+	"mistralai/magistral-small-2506": {
+		contextWindow: 40000,
+		maxOutputTokens: 40000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 1.5,
+		},
+	},
+	"mistralai/ministral-3b": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.04,
+			outputPerMillion: 0.04,
+		},
+	},
+	"mistralai/ministral-8b": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"mistralai/mistral-7b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.028,
+			outputPerMillion: 0.054,
+		},
+	},
+	"mistralai/mistral-7b-instruct-v0.1": {
+		contextWindow: 2824,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.11,
+			outputPerMillion: 0.19,
+		},
+	},
+	"mistralai/mistral-7b-instruct-v0.2": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"mistralai/mistral-7b-instruct-v0.3": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.028,
+			outputPerMillion: 0.054,
+		},
+	},
+	"mistralai/mistral-7b-instruct:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"mistralai/mistral-large": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 6,
+		},
+	},
+	"mistralai/mistral-large-2407": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 6,
+		},
+	},
+	"mistralai/mistral-large-2411": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 6,
+		},
+	},
+	"mistralai/mistral-medium-3": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 2,
+		},
+	},
+	"mistralai/mistral-nemo": {
+		contextWindow: 32000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.0075,
+			outputPerMillion: 0.049999999999999996,
+		},
+	},
+	"mistralai/mistral-nemo:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 128000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"mistralai/mistral-saba": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.6,
+		},
+	},
+	"mistralai/mistral-small": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.6,
+		},
+	},
+	"mistralai/mistral-small-24b-instruct-2501": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.03,
+		},
+	},
+	"mistralai/mistral-small-24b-instruct-2501:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"mistralai/mistral-small-3.1-24b-instruct": {
+		contextWindow: 96000,
+		maxOutputTokens: 96000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.027,
+			outputPerMillion: 0.027,
+		},
+	},
+	"mistralai/mistral-small-3.1-24b-instruct:free": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"mistralai/mistral-small-3.2-24b-instruct": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.049999999999999996,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"mistralai/mistral-small-3.2-24b-instruct:free": {
+		contextWindow: 96000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"mistralai/mistral-tiny": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 0.25,
+		},
+	},
+	"mistralai/mixtral-8x22b-instruct": {
+		contextWindow: 65536,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.8999999999999999,
+			outputPerMillion: 0.8999999999999999,
+		},
+	},
+	"mistralai/mixtral-8x7b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.08,
+			outputPerMillion: 0.24,
+		},
+	},
+	"mistralai/pixtral-12b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"mistralai/pixtral-large-2411": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 6,
+		},
+	},
+	"moonshotai/kimi-dev-72b:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"moonshotai/kimi-k2": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.0878,
+			outputPerMillion: 0.0878,
+		},
+	},
+	"moonshotai/kimi-k2:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"moonshotai/kimi-vl-a3b-thinking": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.038000000000000006,
+			outputPerMillion: 0.038000000000000006,
+		},
+	},
+	"moonshotai/kimi-vl-a3b-thinking:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"morph/morph-v2": {
+		contextWindow: 32000,
+		maxOutputTokens: 16000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.2,
+			outputPerMillion: 2.7,
+		},
+	},
+	"morph/morph-v3-fast": {
+		contextWindow: 32000,
+		maxOutputTokens: 16000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.2,
+			outputPerMillion: 2.7,
+		},
+	},
+	"morph/morph-v3-large": {
+		contextWindow: 32000,
+		maxOutputTokens: 16000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.2,
+			outputPerMillion: 2.7,
+		},
+	},
+	"neversleep/llama-3-lumimaid-70b": {
+		contextWindow: 8192,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 4,
+			outputPerMillion: 6,
+		},
+	},
+	"neversleep/llama-3.1-lumimaid-8b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.18,
+			outputPerMillion: 1,
+		},
+	},
+	"neversleep/noromaid-20b": {
+		contextWindow: 4096,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1,
+			outputPerMillion: 1.75,
+		},
+	},
+	"nothingiisreal/mn-celeste-12b": {
+		contextWindow: 16384,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"nousresearch/deephermes-3-llama-3-8b-preview:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"nousresearch/deephermes-3-mistral-24b-preview": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.14100000000000001,
+			outputPerMillion: 0.14100000000000001,
+		},
+	},
+	"nousresearch/hermes-2-pro-llama-3-8b": {
+		contextWindow: 131072,
+		maxOutputTokens: 131072,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.024999999999999998,
+			outputPerMillion: 0.04,
+		},
+	},
+	"nousresearch/hermes-3-llama-3.1-405b": {
+		contextWindow: 131072,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7,
+			outputPerMillion: 0.7999999999999999,
+		},
+	},
+	"nousresearch/hermes-3-llama-3.1-70b": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.28,
+		},
+	},
+	"nousresearch/nous-hermes-2-mixtral-8x7b-dpo": {
+		contextWindow: 32768,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.6,
+			outputPerMillion: 0.6,
+		},
+	},
+	"nvidia/llama-3.1-nemotron-70b-instruct": {
+		contextWindow: 131072,
+		maxOutputTokens: 131072,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.12,
+			outputPerMillion: 0.3,
+		},
+	},
+	"nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.6,
+			outputPerMillion: 1.7999999999999998,
+		},
+	},
+	"nvidia/llama-3.1-nemotron-ultra-253b-v1:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"nvidia/llama-3.3-nemotron-super-49b-v1": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.13,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"openai/chatgpt-4o-latest": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 5,
+			outputPerMillion: 15,
+		},
+	},
+	"openai/codex-mini": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.5,
+			outputPerMillion: 6,
+		},
+	},
+	"openai/gpt-3.5-turbo": {
+		contextWindow: 16385,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 1.5,
+		},
+	},
+	"openai/gpt-3.5-turbo-0613": {
+		contextWindow: 4095,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1,
+			outputPerMillion: 2,
+		},
+	},
+	"openai/gpt-3.5-turbo-16k": {
+		contextWindow: 16385,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 4,
+		},
+	},
+	"openai/gpt-3.5-turbo-instruct": {
+		contextWindow: 4095,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.5,
+			outputPerMillion: 2,
+		},
+	},
+	"openai/gpt-4": {
+		contextWindow: 8191,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 30,
+			outputPerMillion: 60,
+		},
+	},
+	"openai/gpt-4-0314": {
+		contextWindow: 8191,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 30,
+			outputPerMillion: 60,
+		},
+	},
+	"openai/gpt-4-1106-preview": {
+		contextWindow: 128000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 10,
+			outputPerMillion: 30,
+		},
+	},
+	"openai/gpt-4-turbo": {
+		contextWindow: 128000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 10,
+			outputPerMillion: 30,
+		},
+	},
+	"openai/gpt-4-turbo-preview": {
+		contextWindow: 128000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 10,
+			outputPerMillion: 30,
+		},
+	},
+	"openai/gpt-4.1": {
+		contextWindow: 1047576,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"openai/gpt-4.1-mini": {
+		contextWindow: 1047576,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 1.5999999999999999,
+		},
+	},
+	"openai/gpt-4.1-nano": {
+		contextWindow: 1047576,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"openai/gpt-4o": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"openai/gpt-4o-2024-05-13": {
+		contextWindow: 128000,
+		maxOutputTokens: 4096,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 5,
+			outputPerMillion: 15,
+		},
+	},
+	"openai/gpt-4o-2024-08-06": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"openai/gpt-4o-2024-11-20": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"openai/gpt-4o-mini": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.6,
+		},
+	},
+	"openai/gpt-4o-mini-2024-07-18": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.6,
+		},
+	},
+	"openai/gpt-4o-mini-search-preview": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.15,
+			outputPerMillion: 0.6,
+		},
+	},
+	"openai/gpt-4o-search-preview": {
+		contextWindow: 128000,
+		maxOutputTokens: 16384,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2.5,
+			outputPerMillion: 10,
+		},
+	},
+	"openai/gpt-4o:extended": {
+		contextWindow: 128000,
+		maxOutputTokens: 64000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 6,
+			outputPerMillion: 18,
+		},
+	},
+	"openai/o1": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 15,
+			outputPerMillion: 60,
+		},
+	},
+	"openai/o1-mini": {
+		contextWindow: 128000,
+		maxOutputTokens: 65536,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.1,
+			outputPerMillion: 4.4,
+		},
+	},
+	"openai/o1-mini-2024-09-12": {
+		contextWindow: 128000,
+		maxOutputTokens: 65536,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.1,
+			outputPerMillion: 4.4,
+		},
+	},
+	"openai/o1-pro": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 150,
+			outputPerMillion: 600,
+		},
+	},
+	"openai/o3": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"openai/o3-mini": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.1,
+			outputPerMillion: 4.4,
+		},
+	},
+	"openai/o3-mini-high": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.1,
+			outputPerMillion: 4.4,
+		},
+	},
+	"openai/o3-pro": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 20,
+			outputPerMillion: 80,
+		},
+	},
+	"openai/o4-mini": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.1,
+			outputPerMillion: 4.4,
+		},
+	},
+	"openai/o4-mini-high": {
+		contextWindow: 200000,
+		maxOutputTokens: 100000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.1,
+			outputPerMillion: 4.4,
+		},
+	},
+	"opengvlab/internvl3-14b": {
+		contextWindow: 12288,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"openrouter/auto": {
+		contextWindow: 2000000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"openrouter/horizon-alpha": {
+		contextWindow: 256000,
+		maxOutputTokens: 128000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"openrouter/horizon-beta": {
+		contextWindow: 256000,
+		maxOutputTokens: 128000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"perplexity/r1-1776": {
+		contextWindow: 128000,
+		maxOutputTokens: 128000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"perplexity/sonar": {
+		contextWindow: 127072,
+		maxOutputTokens: 127072,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1,
+			outputPerMillion: 1,
+		},
+	},
+	"perplexity/sonar-deep-research": {
+		contextWindow: 128000,
+		maxOutputTokens: 128000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"perplexity/sonar-pro": {
+		contextWindow: 200000,
+		maxOutputTokens: 8000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"perplexity/sonar-reasoning": {
+		contextWindow: 127000,
+		maxOutputTokens: 127000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1,
+			outputPerMillion: 5,
+		},
+	},
+	"perplexity/sonar-reasoning-pro": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 8,
+		},
+	},
+	"pygmalionai/mythalion-13b": {
+		contextWindow: 4096,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"qwen/qwen-2-72b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.8999999999999999,
+			outputPerMillion: 0.8999999999999999,
+		},
+	},
+	"qwen/qwen-2.5-72b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.101,
+			outputPerMillion: 0.101,
+		},
+	},
+	"qwen/qwen-2.5-72b-instruct:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"qwen/qwen-2.5-7b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.04,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"qwen/qwen-2.5-coder-32b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 16384,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.06,
+			outputPerMillion: 0.15,
+		},
+	},
+	"qwen/qwen-2.5-coder-32b-instruct:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"qwen/qwen-2.5-vl-7b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"qwen/qwen-max": {
+		contextWindow: 32768,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 1.5999999999999999,
+			outputPerMillion: 6.3999999999999995,
+		},
+	},
+	"qwen/qwen-plus": {
+		contextWindow: 131072,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 1.2,
+		},
+	},
+	"qwen/qwen-turbo": {
+		contextWindow: 1000000,
+		maxOutputTokens: 8192,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.049999999999999996,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"qwen/qwen-vl-max": {
+		contextWindow: 7500,
+		maxOutputTokens: 1500,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 3.1999999999999997,
+		},
+	},
+	"qwen/qwen-vl-plus": {
+		contextWindow: 7500,
+		maxOutputTokens: 1500,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.21,
+			outputPerMillion: 0.63,
+		},
+	},
+	"qwen/qwen2.5-vl-32b-instruct": {
+		contextWindow: 128000,
+		maxOutputTokens: 128000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.6,
+		},
+	},
+	"qwen/qwen2.5-vl-32b-instruct:free": {
+		contextWindow: 8192,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"qwen/qwen2.5-vl-72b-instruct": {
+		contextWindow: 32000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.25,
+			outputPerMillion: 0.75,
+		},
+	},
+	"qwen/qwen2.5-vl-72b-instruct:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: null,
+	},
+	"qwen/qwen3-14b": {
+		contextWindow: 40960,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.06,
+			outputPerMillion: 0.24,
+		},
+	},
+	"qwen/qwen3-14b:free": {
+		contextWindow: 40960,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"qwen/qwen3-235b-a22b": {
+		contextWindow: 40960,
+		maxOutputTokens: 40960,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.13,
+			outputPerMillion: 0.6,
+		},
+	},
+	"qwen/qwen3-235b-a22b-2507": {
+		contextWindow: 262144,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.1179,
+			outputPerMillion: 0.1179,
+		},
+	},
+	"qwen/qwen3-235b-a22b-thinking-2507": {
+		contextWindow: 262144,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.1179,
+			outputPerMillion: 0.1179,
+		},
+	},
+	"qwen/qwen3-235b-a22b:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"qwen/qwen3-30b-a3b": {
+		contextWindow: 40960,
+		maxOutputTokens: 40960,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.08,
+			outputPerMillion: 0.29,
+		},
+	},
+	"qwen/qwen3-30b-a3b-instruct-2507": {
+		contextWindow: 131072,
+		maxOutputTokens: 32768,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.7999999999999999,
+		},
+	},
+	"qwen/qwen3-30b-a3b:free": {
+		contextWindow: 40960,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"qwen/qwen3-32b": {
+		contextWindow: 40960,
+		maxOutputTokens: 40960,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.027,
+			outputPerMillion: 0.027,
+		},
+	},
+	"qwen/qwen3-4b:free": {
+		contextWindow: 40960,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"qwen/qwen3-8b": {
+		contextWindow: 128000,
+		maxOutputTokens: 20000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.035,
+			outputPerMillion: 0.13799999999999998,
+		},
+	},
+	"qwen/qwen3-8b:free": {
+		contextWindow: 40960,
+		maxOutputTokens: 40960,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"qwen/qwen3-coder": {
+		contextWindow: 262144,
+		maxOutputTokens: 262144,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 1.2,
+		},
+	},
+	"qwen/qwen3-coder:free": {
+		contextWindow: 262144,
+		maxOutputTokens: 262144,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"qwen/qwq-32b": {
+		contextWindow: 131072,
+		maxOutputTokens: 131072,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.075,
+			outputPerMillion: 0.15,
+		},
+	},
+	"qwen/qwq-32b-preview": {
+		contextWindow: 32768,
+		maxOutputTokens: 32768,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"qwen/qwq-32b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"raifle/sorcererlm-8x22b": {
+		contextWindow: 16000,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 4.5,
+			outputPerMillion: 4.5,
+		},
+	},
+	"rekaai/reka-flash-3": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.013000000000000001,
+			outputPerMillion: 0.013000000000000001,
+		},
+	},
+	"rekaai/reka-flash-3:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"sao10k/fimbulvetr-11b-v2": {
+		contextWindow: 4096,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"sao10k/l3-euryale-70b": {
+		contextWindow: 8192,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 1.48,
+			outputPerMillion: 1.48,
+		},
+	},
+	"sao10k/l3-lunaris-8b": {
+		contextWindow: 8192,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.02,
+			outputPerMillion: 0.049999999999999996,
+		},
+	},
+	"sao10k/l3.1-euryale-70b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.65,
+			outputPerMillion: 0.75,
+		},
+	},
+	"sao10k/l3.3-euryale-70b": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.65,
+			outputPerMillion: 0.75,
+		},
+	},
+	"sarvamai/sarvam-m": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.022,
+			outputPerMillion: 0.022,
+		},
+	},
+	"sarvamai/sarvam-m:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"scb10x/llama3.1-typhoon2-70b-instruct": {
+		contextWindow: 8192,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.88,
+			outputPerMillion: 0.88,
+		},
+	},
+	"shisa-ai/shisa-v2-llama3.3-70b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.03,
+		},
+	},
+	"shisa-ai/shisa-v2-llama3.3-70b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"sophosympatheia/midnight-rose-70b": {
+		contextWindow: 4096,
+		maxOutputTokens: 2048,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 0.7999999999999999,
+		},
+	},
+	"switchpoint/router": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.85,
+			outputPerMillion: 3.4,
+		},
+	},
+	"tencent/hunyuan-a13b-instruct": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.03,
+		},
+	},
+	"tencent/hunyuan-a13b-instruct:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"thedrummer/anubis-70b-v1.1": {
+		contextWindow: 16384,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 0.7,
+		},
+	},
+	"thedrummer/anubis-pro-105b-v1": {
+		contextWindow: 131072,
+		maxOutputTokens: 131072,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.5,
+			outputPerMillion: 1,
+		},
+	},
+	"thedrummer/rocinante-12b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.5,
+		},
+	},
+	"thedrummer/skyfall-36b-v2": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.0728,
+			outputPerMillion: 0.0728,
+		},
+	},
+	"thedrummer/unslopnemo-12b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.39999999999999997,
+			outputPerMillion: 0.39999999999999997,
+		},
+	},
+	"thedrummer/valkyrie-49b-v1": {
+		contextWindow: 131072,
+		maxOutputTokens: 131072,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.65,
+			outputPerMillion: 1,
+		},
+	},
+	"thudm/glm-4-32b": {
+		contextWindow: 32000,
+		maxOutputTokens: 32000,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.24,
+			outputPerMillion: 0.24,
+		},
+	},
+	"thudm/glm-4-32b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"thudm/glm-4.1v-9b-thinking": {
+		contextWindow: 65536,
+		maxOutputTokens: 8000,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.035,
+			outputPerMillion: 0.13799999999999998,
+		},
+	},
+	"thudm/glm-z1-32b": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.03,
+			outputPerMillion: 0.03,
+		},
+	},
+	"thudm/glm-z1-32b:free": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"tngtech/deepseek-r1t-chimera:free": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"tngtech/deepseek-r1t2-chimera": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.302,
+			outputPerMillion: 0.302,
+		},
+	},
+	"tngtech/deepseek-r1t2-chimera:free": {
+		contextWindow: 163840,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
+	"undi95/remm-slerp-l2-13b": {
+		contextWindow: 6144,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7,
+			outputPerMillion: 1,
+		},
+	},
+	"undi95/toppy-m-7b": {
+		contextWindow: 4096,
+		maxOutputTokens: 4096,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.7999999999999999,
+			outputPerMillion: 1.2,
+		},
+	},
+	"x-ai/grok-2-1212": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 10,
+		},
+	},
+	"x-ai/grok-2-vision-1212": {
+		contextWindow: 32768,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 2,
+			outputPerMillion: 10,
+		},
+	},
+	"x-ai/grok-3": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"x-ai/grok-3-beta": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"x-ai/grok-3-mini": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 0.5,
+		},
+	},
+	"x-ai/grok-3-mini-beta": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: false,
+		pricing: {
+			inputPerMillion: 0.3,
+			outputPerMillion: 0.5,
+		},
+	},
+	"x-ai/grok-4": {
+		contextWindow: 256000,
+		maxOutputTokens: 256000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 3,
+			outputPerMillion: 15,
+		},
+	},
+	"x-ai/grok-vision-beta": {
+		contextWindow: 8192,
+		maxOutputTokens: 8192,
+		supportsTools: false,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 5,
+			outputPerMillion: 15,
+		},
+	},
+	"z-ai/glm-4-32b": {
+		contextWindow: 128000,
+		maxOutputTokens: 0,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.09999999999999999,
+			outputPerMillion: 0.09999999999999999,
+		},
+	},
+	"z-ai/glm-4.5": {
+		contextWindow: 131072,
+		maxOutputTokens: 131072,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 0.19999999999999998,
+		},
+	},
+	"z-ai/glm-4.5-air": {
+		contextWindow: 128000,
+		maxOutputTokens: 96000,
+		supportsTools: true,
+		supportsImageInput: true,
+		pricing: {
+			inputPerMillion: 0.19999999999999998,
+			outputPerMillion: 1.1,
+		},
+	},
+	"z-ai/glm-4.5-air:free": {
+		contextWindow: 131072,
+		maxOutputTokens: 0,
+		supportsTools: false,
+		supportsImageInput: false,
+		pricing: null,
+	},
 } as const;
 
 export type OllamaModels = string;
 
-export type AllModels = AnthropicModels | OpenAIModels | GoogleModels | OllamaModels;
+export type AllModels = AnthropicModels | OpenAIModels | GoogleModels | OpenrouterModels | OllamaModels;
 
 export const ModelToProvider = {
-	"claude-2.0": "anthropic",
-	"claude-2.1": "anthropic",
 	"claude-3-5-haiku-20241022": "anthropic",
-	"claude-3-5-haiku-latest": "anthropic",
 	"claude-3-5-sonnet-20240620": "anthropic",
 	"claude-3-5-sonnet-20241022": "anthropic",
-	"claude-3-5-sonnet-latest": "anthropic",
 	"claude-3-7-sonnet-20250219": "anthropic",
-	"claude-3-7-sonnet-latest": "anthropic",
 	"claude-3-haiku-20240307": "anthropic",
 	"claude-3-opus-20240229": "anthropic",
-	"claude-3-opus-latest": "anthropic",
-	"claude-3-sonnet-20240229": "anthropic",
 	"claude-opus-4-20250514": "anthropic",
 	"claude-sonnet-4-20250514": "anthropic",
 	"babbage-002": "openai",
@@ -1519,8 +4871,6 @@ export const ModelToProvider = {
 	"gpt-4.1-mini-2025-04-14": "openai",
 	"gpt-4.1-nano": "openai",
 	"gpt-4.1-nano-2025-04-14": "openai",
-	"gpt-4.5-preview": "openai",
-	"gpt-4.5-preview-2025-02-27": "openai",
 	"gpt-4o": "openai",
 	"gpt-4o-2024-05-13": "openai",
 	"gpt-4o-2024-08-06": "openai",
@@ -1528,6 +4878,7 @@ export const ModelToProvider = {
 	"gpt-4o-audio-preview": "openai",
 	"gpt-4o-audio-preview-2024-10-01": "openai",
 	"gpt-4o-audio-preview-2024-12-17": "openai",
+	"gpt-4o-audio-preview-2025-06-03": "openai",
 	"gpt-4o-mini": "openai",
 	"gpt-4o-mini-2024-07-18": "openai",
 	"gpt-4o-mini-audio-preview": "openai",
@@ -1540,6 +4891,7 @@ export const ModelToProvider = {
 	"gpt-4o-realtime-preview": "openai",
 	"gpt-4o-realtime-preview-2024-10-01": "openai",
 	"gpt-4o-realtime-preview-2024-12-17": "openai",
+	"gpt-4o-realtime-preview-2025-06-03": "openai",
 	"gpt-4o-search-preview": "openai",
 	"gpt-4o-search-preview-2025-03-11": "openai",
 	"gpt-4o-transcribe": "openai",
@@ -1547,35 +4899,37 @@ export const ModelToProvider = {
 	"o1-2024-12-17": "openai",
 	"o1-mini": "openai",
 	"o1-mini-2024-09-12": "openai",
-	"o1-preview": "openai",
-	"o1-preview-2024-09-12": "openai",
 	"o1-pro": "openai",
 	"o1-pro-2025-03-19": "openai",
 	o3: "openai",
 	"o3-2025-04-16": "openai",
+	"o3-deep-research": "openai",
+	"o3-deep-research-2025-06-26": "openai",
 	"o3-mini": "openai",
 	"o3-mini-2025-01-31": "openai",
+	"o3-pro": "openai",
+	"o3-pro-2025-06-10": "openai",
 	"o4-mini": "openai",
 	"o4-mini-2025-04-16": "openai",
+	"o4-mini-deep-research": "openai",
+	"o4-mini-deep-research-2025-06-26": "openai",
 	"omni-moderation-2024-09-26": "openai",
 	"omni-moderation-latest": "openai",
 	"text-embedding-3-large": "openai",
 	"text-embedding-3-small": "openai",
 	"text-embedding-ada-002": "openai",
 	"text-moderation-latest": "openai",
+	"tts-1": "openai",
 	"tts-1-1106": "openai",
 	"tts-1-hd-1106": "openai",
 	aqa: "google",
+	"embedding-001": "google",
 	"embedding-gecko-001": "google",
-	"gemini-1.0-pro-vision-latest": "google",
 	"gemini-1.5-flash": "google",
 	"gemini-1.5-flash-001": "google",
-	"gemini-1.5-flash-001-tuning": "google",
 	"gemini-1.5-flash-002": "google",
 	"gemini-1.5-flash-8b": "google",
 	"gemini-1.5-flash-8b-001": "google",
-	"gemini-1.5-flash-8b-exp-0827": "google",
-	"gemini-1.5-flash-8b-exp-0924": "google",
 	"gemini-1.5-flash-8b-latest": "google",
 	"gemini-1.5-flash-latest": "google",
 	"gemini-1.5-pro": "google",
@@ -1596,21 +4950,348 @@ export const ModelToProvider = {
 	"gemini-2.0-flash-thinking-exp-1219": "google",
 	"gemini-2.0-pro-exp": "google",
 	"gemini-2.0-pro-exp-02-05": "google",
+	"gemini-2.5-flash": "google",
 	"gemini-2.5-flash-exp-native-audio-thinking-dialog": "google",
-	"gemini-2.5-flash-preview-04-17": "google",
-	"gemini-2.5-flash-preview-04-17-thinking": "google",
+	"gemini-2.5-flash-lite": "google",
+	"gemini-2.5-flash-lite-06-17": "google",
+	"gemini-2.5-flash-lite-preview-06-17": "google",
 	"gemini-2.5-flash-preview-05-20": "google",
 	"gemini-2.5-flash-preview-native-audio-dialog": "google",
-	"gemini-2.5-pro-exp-03-25": "google",
+	"gemini-2.5-pro": "google",
 	"gemini-2.5-pro-preview-03-25": "google",
 	"gemini-2.5-pro-preview-05-06": "google",
+	"gemini-2.5-pro-preview-06-05": "google",
+	"gemini-embedding-001": "google",
 	"gemini-embedding-exp": "google",
+	"gemini-embedding-exp-03-07": "google",
 	"gemini-exp-1206": "google",
-	"gemini-pro-vision": "google",
+	"gemini-live-2.5-flash-preview": "google",
 	"gemma-3-12b-it": "google",
 	"gemma-3-1b-it": "google",
 	"gemma-3-27b-it": "google",
 	"gemma-3-4b-it": "google",
+	"gemma-3n-e2b-it": "google",
 	"gemma-3n-e4b-it": "google",
 	"learnlm-2.0-flash-experimental": "google",
+	"text-embedding-004": "google",
+	"veo-2.0-generate-001": "google",
+	"agentica-org/deepcoder-14b-preview": "openrouter",
+	"agentica-org/deepcoder-14b-preview:free": "openrouter",
+	"ai21/jamba-1.6-large": "openrouter",
+	"ai21/jamba-1.6-mini": "openrouter",
+	"aion-labs/aion-1.0": "openrouter",
+	"aion-labs/aion-1.0-mini": "openrouter",
+	"aion-labs/aion-rp-llama-3.1-8b": "openrouter",
+	"alfredpros/codellama-7b-instruct-solidity": "openrouter",
+	"alpindale/goliath-120b": "openrouter",
+	"amazon/nova-lite-v1": "openrouter",
+	"amazon/nova-micro-v1": "openrouter",
+	"amazon/nova-pro-v1": "openrouter",
+	"anthracite-org/magnum-v2-72b": "openrouter",
+	"anthracite-org/magnum-v4-72b": "openrouter",
+	"anthropic/claude-3-haiku": "openrouter",
+	"anthropic/claude-3-haiku:beta": "openrouter",
+	"anthropic/claude-3-opus": "openrouter",
+	"anthropic/claude-3-opus:beta": "openrouter",
+	"anthropic/claude-3-sonnet": "openrouter",
+	"anthropic/claude-3.5-haiku": "openrouter",
+	"anthropic/claude-3.5-haiku-20241022": "openrouter",
+	"anthropic/claude-3.5-haiku:beta": "openrouter",
+	"anthropic/claude-3.5-sonnet": "openrouter",
+	"anthropic/claude-3.5-sonnet-20240620": "openrouter",
+	"anthropic/claude-3.5-sonnet-20240620:beta": "openrouter",
+	"anthropic/claude-3.5-sonnet:beta": "openrouter",
+	"anthropic/claude-3.7-sonnet": "openrouter",
+	"anthropic/claude-3.7-sonnet:beta": "openrouter",
+	"anthropic/claude-3.7-sonnet:thinking": "openrouter",
+	"anthropic/claude-opus-4": "openrouter",
+	"anthropic/claude-sonnet-4": "openrouter",
+	"arcee-ai/coder-large": "openrouter",
+	"arcee-ai/maestro-reasoning": "openrouter",
+	"arcee-ai/spotlight": "openrouter",
+	"arcee-ai/virtuoso-large": "openrouter",
+	"arliai/qwq-32b-arliai-rpr-v1": "openrouter",
+	"arliai/qwq-32b-arliai-rpr-v1:free": "openrouter",
+	"baidu/ernie-4.5-300b-a47b": "openrouter",
+	"bytedance/ui-tars-1.5-7b": "openrouter",
+	"cognitivecomputations/dolphin-mistral-24b-venice-edition:free": "openrouter",
+	"cognitivecomputations/dolphin-mixtral-8x22b": "openrouter",
+	"cognitivecomputations/dolphin3.0-mistral-24b:free": "openrouter",
+	"cognitivecomputations/dolphin3.0-r1-mistral-24b": "openrouter",
+	"cognitivecomputations/dolphin3.0-r1-mistral-24b:free": "openrouter",
+	"cohere/command": "openrouter",
+	"cohere/command-a": "openrouter",
+	"cohere/command-r": "openrouter",
+	"cohere/command-r-03-2024": "openrouter",
+	"cohere/command-r-08-2024": "openrouter",
+	"cohere/command-r-plus": "openrouter",
+	"cohere/command-r-plus-04-2024": "openrouter",
+	"cohere/command-r-plus-08-2024": "openrouter",
+	"cohere/command-r7b-12-2024": "openrouter",
+	"deepseek/deepseek-chat": "openrouter",
+	"deepseek/deepseek-chat-v3-0324": "openrouter",
+	"deepseek/deepseek-chat-v3-0324:free": "openrouter",
+	"deepseek/deepseek-prover-v2": "openrouter",
+	"deepseek/deepseek-r1": "openrouter",
+	"deepseek/deepseek-r1-0528": "openrouter",
+	"deepseek/deepseek-r1-0528-qwen3-8b": "openrouter",
+	"deepseek/deepseek-r1-0528-qwen3-8b:free": "openrouter",
+	"deepseek/deepseek-r1-0528:free": "openrouter",
+	"deepseek/deepseek-r1-distill-llama-70b": "openrouter",
+	"deepseek/deepseek-r1-distill-llama-70b:free": "openrouter",
+	"deepseek/deepseek-r1-distill-llama-8b": "openrouter",
+	"deepseek/deepseek-r1-distill-qwen-1.5b": "openrouter",
+	"deepseek/deepseek-r1-distill-qwen-14b": "openrouter",
+	"deepseek/deepseek-r1-distill-qwen-14b:free": "openrouter",
+	"deepseek/deepseek-r1-distill-qwen-32b": "openrouter",
+	"deepseek/deepseek-r1-distill-qwen-7b": "openrouter",
+	"deepseek/deepseek-r1:free": "openrouter",
+	"deepseek/deepseek-v3-base": "openrouter",
+	"eleutherai/llemma_7b": "openrouter",
+	"featherless/qwerky-72b:free": "openrouter",
+	"google/gemini-2.0-flash-001": "openrouter",
+	"google/gemini-2.0-flash-exp:free": "openrouter",
+	"google/gemini-2.0-flash-lite-001": "openrouter",
+	"google/gemini-2.5-flash": "openrouter",
+	"google/gemini-2.5-flash-lite": "openrouter",
+	"google/gemini-2.5-flash-lite-preview-06-17": "openrouter",
+	"google/gemini-2.5-pro": "openrouter",
+	"google/gemini-2.5-pro-exp-03-25": "openrouter",
+	"google/gemini-2.5-pro-preview": "openrouter",
+	"google/gemini-2.5-pro-preview-05-06": "openrouter",
+	"google/gemini-flash-1.5": "openrouter",
+	"google/gemini-flash-1.5-8b": "openrouter",
+	"google/gemini-pro-1.5": "openrouter",
+	"google/gemma-2-27b-it": "openrouter",
+	"google/gemma-2-9b-it": "openrouter",
+	"google/gemma-2-9b-it:free": "openrouter",
+	"google/gemma-3-12b-it": "openrouter",
+	"google/gemma-3-12b-it:free": "openrouter",
+	"google/gemma-3-27b-it": "openrouter",
+	"google/gemma-3-27b-it:free": "openrouter",
+	"google/gemma-3-4b-it": "openrouter",
+	"google/gemma-3-4b-it:free": "openrouter",
+	"google/gemma-3n-e2b-it:free": "openrouter",
+	"google/gemma-3n-e4b-it": "openrouter",
+	"google/gemma-3n-e4b-it:free": "openrouter",
+	"gryphe/mythomax-l2-13b": "openrouter",
+	"inception/mercury": "openrouter",
+	"inception/mercury-coder": "openrouter",
+	"infermatic/mn-inferor-12b": "openrouter",
+	"inflection/inflection-3-pi": "openrouter",
+	"inflection/inflection-3-productivity": "openrouter",
+	"liquid/lfm-3b": "openrouter",
+	"liquid/lfm-40b": "openrouter",
+	"liquid/lfm-7b": "openrouter",
+	"mancer/weaver": "openrouter",
+	"meta-llama/llama-3-70b-instruct": "openrouter",
+	"meta-llama/llama-3-8b-instruct": "openrouter",
+	"meta-llama/llama-3.1-405b": "openrouter",
+	"meta-llama/llama-3.1-405b-instruct": "openrouter",
+	"meta-llama/llama-3.1-405b-instruct:free": "openrouter",
+	"meta-llama/llama-3.1-70b-instruct": "openrouter",
+	"meta-llama/llama-3.1-8b-instruct": "openrouter",
+	"meta-llama/llama-3.2-11b-vision-instruct": "openrouter",
+	"meta-llama/llama-3.2-11b-vision-instruct:free": "openrouter",
+	"meta-llama/llama-3.2-1b-instruct": "openrouter",
+	"meta-llama/llama-3.2-3b-instruct": "openrouter",
+	"meta-llama/llama-3.2-3b-instruct:free": "openrouter",
+	"meta-llama/llama-3.2-90b-vision-instruct": "openrouter",
+	"meta-llama/llama-3.3-70b-instruct": "openrouter",
+	"meta-llama/llama-3.3-70b-instruct:free": "openrouter",
+	"meta-llama/llama-4-maverick": "openrouter",
+	"meta-llama/llama-4-scout": "openrouter",
+	"meta-llama/llama-guard-2-8b": "openrouter",
+	"meta-llama/llama-guard-3-8b": "openrouter",
+	"meta-llama/llama-guard-4-12b": "openrouter",
+	"microsoft/mai-ds-r1": "openrouter",
+	"microsoft/mai-ds-r1:free": "openrouter",
+	"microsoft/phi-3-medium-128k-instruct": "openrouter",
+	"microsoft/phi-3-mini-128k-instruct": "openrouter",
+	"microsoft/phi-3.5-mini-128k-instruct": "openrouter",
+	"microsoft/phi-4": "openrouter",
+	"microsoft/phi-4-multimodal-instruct": "openrouter",
+	"microsoft/phi-4-reasoning-plus": "openrouter",
+	"microsoft/wizardlm-2-8x22b": "openrouter",
+	"minimax/minimax-01": "openrouter",
+	"minimax/minimax-m1": "openrouter",
+	"mistralai/codestral-2501": "openrouter",
+	"mistralai/devstral-medium": "openrouter",
+	"mistralai/devstral-small": "openrouter",
+	"mistralai/devstral-small-2505": "openrouter",
+	"mistralai/devstral-small-2505:free": "openrouter",
+	"mistralai/magistral-medium-2506": "openrouter",
+	"mistralai/magistral-medium-2506:thinking": "openrouter",
+	"mistralai/magistral-small-2506": "openrouter",
+	"mistralai/ministral-3b": "openrouter",
+	"mistralai/ministral-8b": "openrouter",
+	"mistralai/mistral-7b-instruct": "openrouter",
+	"mistralai/mistral-7b-instruct-v0.1": "openrouter",
+	"mistralai/mistral-7b-instruct-v0.2": "openrouter",
+	"mistralai/mistral-7b-instruct-v0.3": "openrouter",
+	"mistralai/mistral-7b-instruct:free": "openrouter",
+	"mistralai/mistral-large": "openrouter",
+	"mistralai/mistral-large-2407": "openrouter",
+	"mistralai/mistral-large-2411": "openrouter",
+	"mistralai/mistral-medium-3": "openrouter",
+	"mistralai/mistral-nemo": "openrouter",
+	"mistralai/mistral-nemo:free": "openrouter",
+	"mistralai/mistral-saba": "openrouter",
+	"mistralai/mistral-small": "openrouter",
+	"mistralai/mistral-small-24b-instruct-2501": "openrouter",
+	"mistralai/mistral-small-24b-instruct-2501:free": "openrouter",
+	"mistralai/mistral-small-3.1-24b-instruct": "openrouter",
+	"mistralai/mistral-small-3.1-24b-instruct:free": "openrouter",
+	"mistralai/mistral-small-3.2-24b-instruct": "openrouter",
+	"mistralai/mistral-small-3.2-24b-instruct:free": "openrouter",
+	"mistralai/mistral-tiny": "openrouter",
+	"mistralai/mixtral-8x22b-instruct": "openrouter",
+	"mistralai/mixtral-8x7b-instruct": "openrouter",
+	"mistralai/pixtral-12b": "openrouter",
+	"mistralai/pixtral-large-2411": "openrouter",
+	"moonshotai/kimi-dev-72b:free": "openrouter",
+	"moonshotai/kimi-k2": "openrouter",
+	"moonshotai/kimi-k2:free": "openrouter",
+	"moonshotai/kimi-vl-a3b-thinking": "openrouter",
+	"moonshotai/kimi-vl-a3b-thinking:free": "openrouter",
+	"morph/morph-v2": "openrouter",
+	"morph/morph-v3-fast": "openrouter",
+	"morph/morph-v3-large": "openrouter",
+	"neversleep/llama-3-lumimaid-70b": "openrouter",
+	"neversleep/llama-3.1-lumimaid-8b": "openrouter",
+	"neversleep/noromaid-20b": "openrouter",
+	"nothingiisreal/mn-celeste-12b": "openrouter",
+	"nousresearch/deephermes-3-llama-3-8b-preview:free": "openrouter",
+	"nousresearch/deephermes-3-mistral-24b-preview": "openrouter",
+	"nousresearch/hermes-2-pro-llama-3-8b": "openrouter",
+	"nousresearch/hermes-3-llama-3.1-405b": "openrouter",
+	"nousresearch/hermes-3-llama-3.1-70b": "openrouter",
+	"nousresearch/nous-hermes-2-mixtral-8x7b-dpo": "openrouter",
+	"nvidia/llama-3.1-nemotron-70b-instruct": "openrouter",
+	"nvidia/llama-3.1-nemotron-ultra-253b-v1": "openrouter",
+	"nvidia/llama-3.1-nemotron-ultra-253b-v1:free": "openrouter",
+	"nvidia/llama-3.3-nemotron-super-49b-v1": "openrouter",
+	"openai/chatgpt-4o-latest": "openrouter",
+	"openai/codex-mini": "openrouter",
+	"openai/gpt-3.5-turbo": "openrouter",
+	"openai/gpt-3.5-turbo-0613": "openrouter",
+	"openai/gpt-3.5-turbo-16k": "openrouter",
+	"openai/gpt-3.5-turbo-instruct": "openrouter",
+	"openai/gpt-4": "openrouter",
+	"openai/gpt-4-0314": "openrouter",
+	"openai/gpt-4-1106-preview": "openrouter",
+	"openai/gpt-4-turbo": "openrouter",
+	"openai/gpt-4-turbo-preview": "openrouter",
+	"openai/gpt-4.1": "openrouter",
+	"openai/gpt-4.1-mini": "openrouter",
+	"openai/gpt-4.1-nano": "openrouter",
+	"openai/gpt-4o": "openrouter",
+	"openai/gpt-4o-2024-05-13": "openrouter",
+	"openai/gpt-4o-2024-08-06": "openrouter",
+	"openai/gpt-4o-2024-11-20": "openrouter",
+	"openai/gpt-4o-mini": "openrouter",
+	"openai/gpt-4o-mini-2024-07-18": "openrouter",
+	"openai/gpt-4o-mini-search-preview": "openrouter",
+	"openai/gpt-4o-search-preview": "openrouter",
+	"openai/gpt-4o:extended": "openrouter",
+	"openai/o1": "openrouter",
+	"openai/o1-mini": "openrouter",
+	"openai/o1-mini-2024-09-12": "openrouter",
+	"openai/o1-pro": "openrouter",
+	"openai/o3": "openrouter",
+	"openai/o3-mini": "openrouter",
+	"openai/o3-mini-high": "openrouter",
+	"openai/o3-pro": "openrouter",
+	"openai/o4-mini": "openrouter",
+	"openai/o4-mini-high": "openrouter",
+	"opengvlab/internvl3-14b": "openrouter",
+	"openrouter/auto": "openrouter",
+	"openrouter/horizon-alpha": "openrouter",
+	"openrouter/horizon-beta": "openrouter",
+	"perplexity/r1-1776": "openrouter",
+	"perplexity/sonar": "openrouter",
+	"perplexity/sonar-deep-research": "openrouter",
+	"perplexity/sonar-pro": "openrouter",
+	"perplexity/sonar-reasoning": "openrouter",
+	"perplexity/sonar-reasoning-pro": "openrouter",
+	"pygmalionai/mythalion-13b": "openrouter",
+	"qwen/qwen-2-72b-instruct": "openrouter",
+	"qwen/qwen-2.5-72b-instruct": "openrouter",
+	"qwen/qwen-2.5-72b-instruct:free": "openrouter",
+	"qwen/qwen-2.5-7b-instruct": "openrouter",
+	"qwen/qwen-2.5-coder-32b-instruct": "openrouter",
+	"qwen/qwen-2.5-coder-32b-instruct:free": "openrouter",
+	"qwen/qwen-2.5-vl-7b-instruct": "openrouter",
+	"qwen/qwen-max": "openrouter",
+	"qwen/qwen-plus": "openrouter",
+	"qwen/qwen-turbo": "openrouter",
+	"qwen/qwen-vl-max": "openrouter",
+	"qwen/qwen-vl-plus": "openrouter",
+	"qwen/qwen2.5-vl-32b-instruct": "openrouter",
+	"qwen/qwen2.5-vl-32b-instruct:free": "openrouter",
+	"qwen/qwen2.5-vl-72b-instruct": "openrouter",
+	"qwen/qwen2.5-vl-72b-instruct:free": "openrouter",
+	"qwen/qwen3-14b": "openrouter",
+	"qwen/qwen3-14b:free": "openrouter",
+	"qwen/qwen3-235b-a22b": "openrouter",
+	"qwen/qwen3-235b-a22b-2507": "openrouter",
+	"qwen/qwen3-235b-a22b-thinking-2507": "openrouter",
+	"qwen/qwen3-235b-a22b:free": "openrouter",
+	"qwen/qwen3-30b-a3b": "openrouter",
+	"qwen/qwen3-30b-a3b-instruct-2507": "openrouter",
+	"qwen/qwen3-30b-a3b:free": "openrouter",
+	"qwen/qwen3-32b": "openrouter",
+	"qwen/qwen3-4b:free": "openrouter",
+	"qwen/qwen3-8b": "openrouter",
+	"qwen/qwen3-8b:free": "openrouter",
+	"qwen/qwen3-coder": "openrouter",
+	"qwen/qwen3-coder:free": "openrouter",
+	"qwen/qwq-32b": "openrouter",
+	"qwen/qwq-32b-preview": "openrouter",
+	"qwen/qwq-32b:free": "openrouter",
+	"raifle/sorcererlm-8x22b": "openrouter",
+	"rekaai/reka-flash-3": "openrouter",
+	"rekaai/reka-flash-3:free": "openrouter",
+	"sao10k/fimbulvetr-11b-v2": "openrouter",
+	"sao10k/l3-euryale-70b": "openrouter",
+	"sao10k/l3-lunaris-8b": "openrouter",
+	"sao10k/l3.1-euryale-70b": "openrouter",
+	"sao10k/l3.3-euryale-70b": "openrouter",
+	"sarvamai/sarvam-m": "openrouter",
+	"sarvamai/sarvam-m:free": "openrouter",
+	"scb10x/llama3.1-typhoon2-70b-instruct": "openrouter",
+	"shisa-ai/shisa-v2-llama3.3-70b": "openrouter",
+	"shisa-ai/shisa-v2-llama3.3-70b:free": "openrouter",
+	"sophosympatheia/midnight-rose-70b": "openrouter",
+	"switchpoint/router": "openrouter",
+	"tencent/hunyuan-a13b-instruct": "openrouter",
+	"tencent/hunyuan-a13b-instruct:free": "openrouter",
+	"thedrummer/anubis-70b-v1.1": "openrouter",
+	"thedrummer/anubis-pro-105b-v1": "openrouter",
+	"thedrummer/rocinante-12b": "openrouter",
+	"thedrummer/skyfall-36b-v2": "openrouter",
+	"thedrummer/unslopnemo-12b": "openrouter",
+	"thedrummer/valkyrie-49b-v1": "openrouter",
+	"thudm/glm-4-32b": "openrouter",
+	"thudm/glm-4-32b:free": "openrouter",
+	"thudm/glm-4.1v-9b-thinking": "openrouter",
+	"thudm/glm-z1-32b": "openrouter",
+	"thudm/glm-z1-32b:free": "openrouter",
+	"tngtech/deepseek-r1t-chimera:free": "openrouter",
+	"tngtech/deepseek-r1t2-chimera": "openrouter",
+	"tngtech/deepseek-r1t2-chimera:free": "openrouter",
+	"undi95/remm-slerp-l2-13b": "openrouter",
+	"undi95/toppy-m-7b": "openrouter",
+	"x-ai/grok-2-1212": "openrouter",
+	"x-ai/grok-2-vision-1212": "openrouter",
+	"x-ai/grok-3": "openrouter",
+	"x-ai/grok-3-beta": "openrouter",
+	"x-ai/grok-3-mini": "openrouter",
+	"x-ai/grok-3-mini-beta": "openrouter",
+	"x-ai/grok-4": "openrouter",
+	"x-ai/grok-vision-beta": "openrouter",
+	"z-ai/glm-4-32b": "openrouter",
+	"z-ai/glm-4.5": "openrouter",
+	"z-ai/glm-4.5-air": "openrouter",
+	"z-ai/glm-4.5-air:free": "openrouter",
 } as const;

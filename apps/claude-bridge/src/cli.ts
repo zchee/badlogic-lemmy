@@ -11,6 +11,7 @@ import {
 	GoogleModelData,
 	ModelToProvider,
 	OpenAIModelData,
+	OpenrouterModelData,
 	findModelData,
 	type ModelData,
 	type Provider,
@@ -72,6 +73,7 @@ const modelValidationConfig: ModelValidationConfig = {
 		anthropic: AnthropicModelData,
 		openai: OpenAIModelData,
 		google: GoogleModelData,
+		openrouter: OpenrouterModelData,
 	},
 	modelToProvider: ModelToProvider,
 };
@@ -116,6 +118,7 @@ EXAMPLES:
   claude-bridge                           # Shows: openai, google
   claude-bridge openai                    # Shows OpenAI models
   claude-bridge google                    # Shows Google models
+  claude-bridge openrouter                # Shows OpenRouter models
 
   # Execution
   claude-bridge openai gpt-4o
@@ -144,6 +147,7 @@ OPTIONS:
 ENVIRONMENT VARIABLES:
   OPENAI_API_KEY        API key for OpenAI (if --apiKey not provided)
   GOOGLE_API_KEY        API key for Google (if --apiKey not provided)
+  OPENROUTER_API_KEY    API key for OpenRouter (if --apiKey not provided)
 
 NOTE:
   Only models with both tools and image support are shown by default.
@@ -166,6 +170,9 @@ function showProviders(): void {
 				case "google":
 					console.log(`  google     Google models (Gemini, etc.)`);
 					break;
+				case "openrouter":
+					console.log(`  openrouter OpenRouter models`);
+					break;
 				default: {
 					// TypeScript will catch if we miss any provider cases
 					const _exhaustiveCheck: never = provider;
@@ -182,7 +189,8 @@ Usage:
 
 Examples:
   claude-bridge openai           # Show OpenAI models
-  claude-bridge google           # Show Google models`);
+  claude-bridge google           # Show Google models
+  claude-bridge openrouter       # Show OpenRouter models`);
 }
 
 function showProviderModels(provider: string): void {
@@ -218,6 +226,8 @@ function showProviderModels(provider: string): void {
 		providerDisplayName = "OpenAI";
 	} else if (provider === "google") {
 		providerDisplayName = "Google";
+	} else if (provider === "openrouter") {
+		providerDisplayName = "Openrouter";
 	} else {
 		// This should never happen since we validated provider above
 		console.error(`❌ Unexpected provider: ${provider}`);
@@ -253,6 +263,9 @@ function showProviderModels(provider: string): void {
 	console.log(`  claude-bridge ${provider} ${sortedModels[0]}`);
 	if (sortedModels[1]) {
 		console.log(`  claude-bridge ${provider} ${sortedModels[1]}`);
+	}
+	if (sortedModels[2]) {
+		console.log(`  claude-bridge ${provider} ${sortedModels[2]}`);
 	}
 }
 
@@ -539,6 +552,9 @@ function runClaudeWithBridge(args: ClaudeArgs): number {
 				break;
 			case "google":
 				envVar = "GOOGLE_API_KEY";
+				break;
+			case "openrouter":
+				envVar = "OPENROUTER_API_KEY";
 				break;
 			default:
 				// TypeScript will catch if we miss any provider cases

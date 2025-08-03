@@ -4,7 +4,7 @@ import { z } from "zod";
 // Core schemas
 // =============================================================================
 
-export const ProviderSchema = z.enum(["anthropic", "openai", "google"]);
+export const ProviderSchema = z.enum(["anthropic", "openai", "google", "openrouter"]);
 
 // =============================================================================
 // Ask options schemas (for runtime API calls)
@@ -147,6 +147,7 @@ export const CLIENT_CONFIG_SCHEMAS = {
 	anthropic: AnthropicAskOptionsSchema,
 	openai: OpenAIAskOptionsSchema,
 	google: GoogleAskOptionsSchema,
+	openrouter: OpenAIAskOptionsSchema,
 } as const;
 
 // =============================================================================
@@ -156,6 +157,7 @@ export type BaseConfig = z.infer<typeof BaseClientConfigSchema>;
 export type AnthropicConfig = z.infer<typeof AnthropicConfigSchema>;
 export type OpenAIConfig = z.infer<typeof OpenAIConfigSchema>;
 export type GoogleConfig = z.infer<typeof GoogleConfigSchema>;
+export type OpenRouterConfig = z.infer<typeof OpenAIConfigSchema>;
 
 export type BaseAskOptions = z.infer<typeof BaseAskOptionsSchema>;
 export type AnthropicAskOptions = z.infer<typeof AnthropicAskOptionsSchema>;
@@ -167,6 +169,7 @@ export type ProviderConfigMap = {
 	anthropic: AnthropicConfig;
 	openai: OpenAIConfig;
 	google: GoogleConfig;
+	openrouter: OpenRouterConfig;
 };
 
 // =============================================================================

@@ -5,19 +5,20 @@ import {
 	GoogleModelData,
 	ModelToProvider,
 	OpenAIModelData,
+	OpenrouterModelData,
 } from "./generated/models.js";
 import { ChatClient, TokenUsage } from "./types.js";
-import type { AnthropicConfig, GoogleConfig, OpenAIConfig } from "./configs.js";
+import type { AnthropicConfig, GoogleConfig, OpenAIConfig, OpenRouterConfig } from "./configs.js";
 
 // Re-export model types and data
 export * from "./generated/models.js";
 
 // Provider utilities for CLI usage
-export function getProviderForModel(model: AllModels): "anthropic" | "openai" | "google" {
+export function getProviderForModel(model: AllModels): "anthropic" | "openai" | "google" | "openrouter" {
 	return ModelToProvider[model as keyof typeof ModelToProvider];
 }
 
-export function getDefaultApiKeyEnvVar(provider: "anthropic" | "openai" | "google"): string {
+export function getDefaultApiKeyEnvVar(provider: "anthropic" | "openai" | "google" | "openrouter"): string {
 	switch (provider) {
 		case "anthropic":
 			return "ANTHROPIC_API_KEY";
@@ -25,6 +26,8 @@ export function getDefaultApiKeyEnvVar(provider: "anthropic" | "openai" | "googl
 			return "OPENAI_API_KEY";
 		case "google":
 			return "GOOGLE_API_KEY";
+		case "openrouter":
+			return "OPENROUTER_API_KEY";
 		default:
 			throw new Error(`Unknown provider: ${provider}`);
 	}
@@ -33,7 +36,7 @@ export function getDefaultApiKeyEnvVar(provider: "anthropic" | "openai" | "googl
 // Type-safe factory function for CLI usage
 export function createClientForModel(
 	model: AllModels,
-	config: AnthropicConfig | OpenAIConfig | GoogleConfig,
+	config: AnthropicConfig | OpenAIConfig | GoogleConfig | OpenRouterConfig,
 ): ChatClient {
 	const provider = ModelToProvider[model as keyof typeof ModelToProvider];
 
@@ -43,6 +46,8 @@ export function createClientForModel(
 		return lemmy.openai({ ...config, model } as OpenAIConfig);
 	} else if (provider === "google") {
 		return lemmy.google({ ...config, model } as GoogleConfig);
+	} else if (provider === "openrouter") {
+		return lemmy.openrouter({ ...config, model } as OpenRouterConfig);
 	} else {
 		throw new Error(`Unsupported model: ${model}`);
 	}
@@ -58,6 +63,9 @@ export function findModelData(model: string): ModelData | undefined {
 	}
 	if (GoogleModelData[model as keyof typeof GoogleModelData]) {
 		return GoogleModelData[model as keyof typeof GoogleModelData] as ModelData;
+	}
+	if (OpenrouterModelData[model as keyof typeof OpenrouterModelData]) {
+		return OpenrouterModelData[model as keyof typeof OpenrouterModelData] as ModelData;
 	}
 	return undefined;
 }

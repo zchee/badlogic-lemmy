@@ -9,6 +9,7 @@ import type {
 	AnthropicConfig,
 	OpenAIConfig,
 	GoogleConfig,
+	OpenRouterConfig,
 	AnthropicAskOptions,
 	OpenAIAskOptions,
 	GoogleAskOptions,
@@ -60,6 +61,11 @@ export async function createProviderClient(config: BridgeConfig): Promise<Provid
 				client = lemmy.anthropic(providerConfig as AnthropicConfig);
 				break;
 			}
+			case "openrouter": {
+				const { lemmy } = await import("@mariozechner/lemmy");
+				client = lemmy.openrouter(providerConfig as OpenRouterConfig);
+				break;
+			}
 			default:
 				const _exhaustiveCheck: never = provider;
 				throw new Error(`Unsupported provider: ${_exhaustiveCheck}`);
@@ -92,6 +98,8 @@ function buildProviderConfig(provider: Provider, config: BridgeConfig): Provider
 			return baseConfig as OpenAIConfig;
 		case "google":
 			return baseConfig as GoogleConfig;
+		case "openrouter":
+			return baseConfig as OpenRouterConfig;
 		default:
 			// TypeScript exhaustiveness check
 			const _exhaustiveCheck: never = provider;
@@ -116,6 +124,10 @@ function getDefaultApiKey(provider: Provider): string {
 			const googleKey = process.env["GOOGLE_API_KEY"];
 			if (!googleKey) throw new Error("GOOGLE_API_KEY environment variable is required");
 			return googleKey;
+		case "openrouter":
+			const openrouterKey = process.env["OPENROUTER_API_KEY"];
+			if (!openrouterKey) throw new Error("OPENROUTER_API_KEY environment variable is required");
+			return openrouterKey;
 		default:
 			// TypeScript exhaustiveness check
 			const _exhaustiveCheck: never = provider;
@@ -213,6 +225,14 @@ export function convertThinkingParameters(
 				...baseOptions,
 				...(anthropicRequest.thinking?.type == "enabled" && {
 					reasoningEffort: "medium" as const,
+				}),
+			} as OpenAIAskOptions;
+
+		case "openrouter":
+			return {
+				...baseOptions,
+				...(anthropicRequest.thinking?.type == "enabled" && {
+					reasoningEffort: "high" as const,
 				}),
 			} as OpenAIAskOptions;
 
